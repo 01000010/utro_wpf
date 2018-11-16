@@ -27,6 +27,11 @@ namespace utro_wpf
         /// </summary>
         private int mWindowRadius = 12;
 
+        /// <summary>
+        /// The last known dock position
+        /// </summary>
+        private WindowDockPosition mDockPosition = WindowDockPosition.Undocked;
+
         #endregion
 
         #region Public Properties
@@ -37,19 +42,23 @@ namespace utro_wpf
         public double WindowMinimumWidth { get; set; } = 600.0;
 
         /// <summary>
-        /// The smallest height the windwo can be
+        /// The smallest height the window can be
         /// </summary>
         public double WindowMinimumHeight { get; set; } = 600.0;
+
+        public bool Borderless { get { return (mWindow.WindowState == WindowState.Maximized || mDockPosition != WindowDockPosition.Undocked); } }
 
         /// <summary>
         /// The size of the border around the window
         /// </summary>
-        public int ResizeBorder { get; set; } = 6;
+        //public int ResizeBorder { get; set; } = 6;
+        public int ResizeBorder { get { return Borderless ? 0 : 6; } }
 
         /// <summary>
         /// The new padding for the window's contents
         /// </summary>
-        public Thickness InnerBodyPadding { get { return new Thickness(ResizeBorder); } }
+        //public Thickness InnerBodyPadding { get { return new Thickness(ResizeBorder); } }
+        public Thickness InnerBodyPadding { get; set; } = new Thickness(0);
 
         /// <summary>
         /// The new resized border of the window taking into account the outer margin
@@ -71,7 +80,10 @@ namespace utro_wpf
             }
         }
 
-        public Thickness OuterMarginThickness { get { return new Thickness(OuterMarginSize); } }
+        /// <summary>
+        /// The margin around the window to allow for a drop shadow
+        /// </summary>
+        public Thickness OuterMarginSizeThickness { get { return new Thickness(OuterMarginSize); } }
 
         /// <summary>
         /// The radius of the window's edges
@@ -103,7 +115,15 @@ namespace utro_wpf
         /// </summary>
         public int TitleHeight { get; set; } = 42;
 
+        /// <summary>
+        /// The height of the title bar (the top bar of the window)
+        /// </summary>
         public GridLength TitleHeightGridLength { get { return new GridLength(TitleHeight + ResizeBorder); } }
+
+        /// <summary>
+        /// The current page of the application
+        /// </summary>
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
 
         #endregion
 
@@ -145,11 +165,7 @@ namespace utro_wpf
             mWindow.StateChanged += (sender, e) =>
             {
                 // Fire off event for all properties that are affected by a resize
-                OnPropertyChanged(nameof(ResizeBorderThickness));
-                OnPropertyChanged(nameof(OuterMarginSize));
-                OnPropertyChanged(nameof(OuterMarginThickness));
-                OnPropertyChanged(nameof(WindowRadius));
-                OnPropertyChanged(nameof(WindowCornerRadius));
+                WindowResized();
             };
 
             // Initialize the commands
@@ -161,7 +177,17 @@ namespace utro_wpf
             // TODO
             // Fix window resize 
             // Gotta fix the bug about the minimum size
-            // WindowResizer resizer = new WindowResizer(mWindow);
+            WindowResizer resizer = new WindowResizer(mWindow);
+
+            // Listen out for dock changes
+            resizer.WindowDockChanged += (dock) =>
+            {
+                // Store last position
+                mDockPosition = dock;
+
+                // Fire off resize events
+                WindowResized();
+            };
         }
 
         #endregion
@@ -176,6 +202,21 @@ namespace utro_wpf
         {
             Point position = Mouse.GetPosition(mWindow);
             return new Point(position.X + mWindow.Left, position.Y + mWindow.Top);
+        }
+
+        /// <summary>
+        /// If the window resizes to a special position (docked or maximized)
+        /// this will update all required property change events to set the borders and radius values
+        /// </summary>
+        private void WindowResized()
+        {
+            // Fire off events for all properties that are affected by a resize
+            OnPropertyChanged(nameof(Borderless));
+            OnPropertyChanged(nameof(ResizeBorderThickness));
+            OnPropertyChanged(nameof(OuterMarginSize));
+            OnPropertyChanged(nameof(OuterMarginSizeThickness));
+            OnPropertyChanged(nameof(WindowRadius));
+            OnPropertyChanged(nameof(WindowCornerRadius));
         }
 
         #endregion

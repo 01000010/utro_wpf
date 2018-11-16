@@ -68,7 +68,7 @@
                                             <Image Source="/Images/Logo/logo-bar-line.jpg"/>
                                         </Button>
                                         <!-- Title -->
-                                        <Viewbox Grid.Column="1" Margin="0">
+                                        <Viewbox Grid.Column="0" Grid.ColumnSpan="3" Margin="0">
                                             <TextBlock 
                                                 FontFamily="{StaticResource LatoRegular}"
                                                 Style="{StaticResource HeaderText}"
@@ -121,6 +121,6 @@
     </WindowChrome.WindowChrome>
     
     <Grid Background="{StaticResource Main1Brush}">
-        <TextBlock Foreground="{StaticResource Text1Brush}" FontFamily="{StaticResource LatoBold}" FontSize="72" Text="Hello, world!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}"/>
     </Grid>
 </Window>

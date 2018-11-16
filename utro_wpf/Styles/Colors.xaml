@@ -1,18 +1,40 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:utro_wpf">
-    <!-- Colors -->
+    <!-- Colors by the style guide -->
     <Color x:Key="Main1">#B5D5CA</Color>
     <Color x:Key="Main2">#E0A9AF</Color>
     <Color x:Key="Extra1">#D1EEFC</Color>
     <Color x:Key="Extra2">#FFFCD6</Color>
     <Color x:Key="Text1">#FFFFFF</Color>
     <Color x:Key="Text2">#000000</Color>
-    <!-- Brushes -->
+    <!-- Extra colors -->
+    <Color x:Key="BackgroundLight">#EFEFEF</Color>
+    <Color x:Key="BackgroundVeryLight">#FAFAFA</Color>
+    <Color x:Key="ForegroundMain">#686868</Color>
+    <Color x:Key="ForegroundVeryDark">#000000</Color>
+    <Color x:Key="ForegroundLight">#FFFFFF</Color>
+    <Color x:Key="ForegroundDark">#BDBDBD</Color>
+    <Color x:Key="WordBlue">#3099C5</Color>
+    <Color x:Key="WordOrange">#FFA800</Color>
+    <Color x:Key="WordRed">#FF4747</Color>
+    <Color x:Key="WordGreen">#00C541</Color>    
+    <!-- Brushes by the style guide -->
     <SolidColorBrush x:Key="Main1Brush" Color="{StaticResource Main1}"/>
     <SolidColorBrush x:Key="Main2Brush" Color="{StaticResource Main2}"/>
     <SolidColorBrush x:Key="Extra1Brush" Color="{StaticResource Extra1}"/>
     <SolidColorBrush x:Key="Extra2Brush" Color="{StaticResource Extra2}"/>
     <SolidColorBrush x:Key="Text1Brush" Color="{StaticResource Text1}"/>
     <SolidColorBrush x:Key="Text2Brush" Color="{StaticResource Text2}"/>
+    <!-- Extra brushes -->
+    <SolidColorBrush x:Key="BackgroundLightBrush" Color="{StaticResource BackgroundLight}"/>
+    <SolidColorBrush x:Key="BackgroudnVeryLightBrush" Color="{StaticResource BackgroundVeryLight}"/>
+    <SolidColorBrush x:Key="ForegroundMainBrush" Color="{StaticResource ForegroundMain}"/>
+    <SolidColorBrush x:Key="ForegroundVeryDarkBrush" Color="{StaticResource ForegroundVeryDark}"/>
+    <SolidColorBrush x:Key="ForegroundLightBrush" Color="{StaticResource ForegroundLight}"/>
+    <SolidColorBrush x:Key="ForegroundDarkBrush" Color="{StaticResource ForegroundDark}"/>
+    <SolidColorBrush x:Key="WordBlueBrush" Color="{StaticResource WordBlue}"/>
+    <SolidColorBrush x:Key="WordOrangeBrush" Color="{StaticResource WordOrange}"/>
+    <SolidColorBrush x:Key="WordRedBrush" Color="{StaticResource WordRed}"/>
+    <SolidColorBrush x:Key="WordGreenBrush" Color="{StaticResource WordGreen}"/>
 </ResourceDictionary>

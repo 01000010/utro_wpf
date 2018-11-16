@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:utro_wpf">
+                    xmlns:local="clr-namespace:utro_wpf"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
     <!-- Fonts -->
     <FontFamily x:Key="LatoBlack">pack://application;,,,/Fonts/#Lato Black</FontFamily>
     <FontFamily x:Key="LatoBlackItalic">pack://application;,,,/Fonts/#Lato Black Italic</FontFamily>
@@ -32,4 +33,8 @@
     <Style TargetType="{x:Type Label}" BasedOn="{StaticResource BaseStyle}"/>
     <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseStyle}"/>
     <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlockStyle}"/>
+    <!-- Font sizes -->
+    <system:Double x:Key="FontSizeRegular">20</system:Double>
+    <system:Double x:Key="FontSizeSmall">14</system:Double>
+    <system:Double x:Key="FontSizeLarge">30</system:Double>
 </ResourceDictionary>
