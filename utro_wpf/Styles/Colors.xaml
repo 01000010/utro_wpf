@@ -18,7 +18,8 @@
     <Color x:Key="WordBlue">#3099C5</Color>
     <Color x:Key="WordOrange">#FFA800</Color>
     <Color x:Key="WordRed">#FF4747</Color>
-    <Color x:Key="WordGreen">#00C541</Color>    
+    <Color x:Key="WordGreen">#00C541</Color>
+    <Color x:Key="Disabled">#ACACAC</Color>
     <!-- Brushes by the style guide -->
     <SolidColorBrush x:Key="Main1Brush" Color="{StaticResource Main1}"/>
     <SolidColorBrush x:Key="Main2Brush" Color="{StaticResource Main2}"/>
@@ -28,7 +29,7 @@
     <SolidColorBrush x:Key="Text2Brush" Color="{StaticResource Text2}"/>
     <!-- Extra brushes -->
     <SolidColorBrush x:Key="BackgroundLightBrush" Color="{StaticResource BackgroundLight}"/>
-    <SolidColorBrush x:Key="BackgroudnVeryLightBrush" Color="{StaticResource BackgroundVeryLight}"/>
+    <SolidColorBrush x:Key="BackgroundVeryLightBrush" Color="{StaticResource BackgroundVeryLight}"/>
     <SolidColorBrush x:Key="ForegroundMainBrush" Color="{StaticResource ForegroundMain}"/>
     <SolidColorBrush x:Key="ForegroundVeryDarkBrush" Color="{StaticResource ForegroundVeryDark}"/>
     <SolidColorBrush x:Key="ForegroundLightBrush" Color="{StaticResource ForegroundLight}"/>
@@ -37,4 +38,5 @@
     <SolidColorBrush x:Key="WordOrangeBrush" Color="{StaticResource WordOrange}"/>
     <SolidColorBrush x:Key="WordRedBrush" Color="{StaticResource WordRed}"/>
     <SolidColorBrush x:Key="WordGreenBrush" Color="{StaticResource WordGreen}"/>
+    <SolidColorBrush x:Key="DiabledBrush" Color="{StaticResource Disabled}"/>
 </ResourceDictionary>

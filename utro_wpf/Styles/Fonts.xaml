@@ -3,30 +3,20 @@
                     xmlns:local="clr-namespace:utro_wpf"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <!-- Fonts -->
-    <FontFamily x:Key="LatoBlack">pack://application;,,,/Fonts/#Lato Black</FontFamily>
-    <FontFamily x:Key="LatoBlackItalic">pack://application;,,,/Fonts/#Lato Black Italic</FontFamily>
-    <FontFamily x:Key="LatoBold">pack://application;,,,/Fonts/#Lato Bold</FontFamily>
-    <FontFamily x:Key="LatoBoldItalic">pack://application;,,,/Fonts/#Lato Bold Italic</FontFamily>
-    <FontFamily x:Key="LatoHairline">pack://application;,,,/Fonts/#Lato Hairline</FontFamily>
-    <FontFamily x:Key="LatoHairlineItalic">pack://application;,,,/Fonts/#Lato Hairline Italic</FontFamily>
-    <FontFamily x:Key="LatoHeavy">pack://application;,,,/Fonts/#Lato Heavy</FontFamily>
-    <FontFamily x:Key="LatoHeavyItalic">pack://application;,,,/Fonts/#Lato Heavy Italic</FontFamily>
-    <FontFamily x:Key="LatoItalic">pack://application;,,,/Fonts/#Lato Italic</FontFamily>
-    <FontFamily x:Key="LatoLight">pack://application;,,,/Fonts/#Lato Light</FontFamily>
-    <FontFamily x:Key="LatoLightItalic">pack://application;,,,/Fonts/#Lato Light Italic</FontFamily>
-    <FontFamily x:Key="LatoMedium">pack://application;,,,/Fonts/#Lato Medium</FontFamily>
-    <FontFamily x:Key="LatoMediumItalic">pack://application;,,,/Fonts/#Lato Medium Italic</FontFamily>
-    <FontFamily x:Key="LatoRegular">pack://application;,,,/Fonts/#Lato Regular</FontFamily>
-    <FontFamily x:Key="LatoSemibold">pack://application;,,,/Fonts/#Lato Semibold</FontFamily>
-    <FontFamily x:Key="LatoSemiboldItalic">pack://application;,,,/Fonts/#Lato Semibold Italic</FontFamily>
-    <FontFamily x:Key="LatoThin">pack://application;,,,/Fonts/#Lato Thin</FontFamily>
-    <FontFamily x:Key="LatoThinItalic">pack://application;,,,/Fonts/#Lato Thin Italic</FontFamily>
+    <!-- /// Azbuka04 /// -->
+    <FontFamily x:Key="Azbuka04">pack://application;,,,/Fonts/Azbuka04/#Azbuka04</FontFamily>
+    <!-- /// DejaVu_Sans /// -->
+    <FontFamily x:Key="DejaVuSans">pack://application;,,,/Fonts/DejaVu_Sans/#DejaVu Sans</FontFamily>
+    <!-- /// EvolveSansEVO /// -->
+    <FontFamily x:Key="EvolveSansEVO">pack://application;,,,/Fonts/EvolveSansEVO/#MADE Evolve Sans EVO</FontFamily>
+    <!-- /// Lato /// -->
+    <FontFamily x:Key="Lato">pack://application;,,,/Fonts/Lato/#Lato Regular</FontFamily>
     <!-- Base configuration styles -->
     <Style TargetType="{x:Type Control}" x:Key="BaseStyle">
-        <Setter Property="FontFamily" Value="{StaticResource LatoThin}"/>
+        <Setter Property="FontFamily" Value="{StaticResource EvolveSansEVO}"/>
     </Style>
     <Style TargetType="{x:Type TextBlock}" x:Key="BaseTextBlockStyle">
-        <Setter Property="FontFamily" Value="{StaticResource LatoThin}"/>
+        <Setter Property="FontFamily" Value="{StaticResource EvolveSansEVO}"/>
     </Style>
     <!-- Setting default styles for controls -->
     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}"/>
@@ -35,6 +25,10 @@
     <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlockStyle}"/>
     <!-- Font sizes -->
     <system:Double x:Key="FontSizeRegular">20</system:Double>
-    <system:Double x:Key="FontSizeSmall">14</system:Double>
+    <system:Double x:Key="FontSizeStandard">14</system:Double>
+    <system:Double x:Key="FontSizeSmall">12</system:Double>
+    <system:Double x:Key="FontSizeTiny">10</system:Double>
     <system:Double x:Key="FontSizeLarge">30</system:Double>
+    <system:Double x:Key="FontSizeExtraLarge">42</system:Double>
+    <system:Double x:Key="FontSizeUltraLarge">64</system:Double>
 </ResourceDictionary>

@@ -10,7 +10,7 @@
         AllowsTransparency="True"
         x:Name="UtroDesktopApp"
         WindowStartupLocation="CenterScreen"
-        Title="Добро пожаловать!"
+        Title="ДОБРО ПОЖАЛОВАТЬ!"
         Height="700" 
         MinHeight="{Binding WindowMinimumHeight}"
         Width="1000"
@@ -70,14 +70,13 @@
                                         <!-- Title -->
                                         <Viewbox Grid.Column="0" Grid.ColumnSpan="3" Margin="0">
                                             <TextBlock 
-                                                FontFamily="{StaticResource LatoRegular}"
                                                 Style="{StaticResource HeaderText}"
-                                                Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Title, FallbackValue='Добро пожаловать!'}"/>
+                                                Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Title, FallbackValue='ДОБРО ПОЖАЛОВАТЬ!'}"/>
                                         </Viewbox>
                                         <!-- Control buttons -->
                                         <StackPanel Grid.Column="2" Orientation="Horizontal">
-                                            <Button Content=" __ " Command="{Binding MinimizeCommand}" Style="{StaticResource WindowControlButton}"/>
-                                            <Button Content="[   ]" Command="{Binding MaximizeCommand}" Style="{StaticResource WindowControlButton}"/>
+                                            <Button Content=" _ " Command="{Binding MinimizeCommand}" Style="{StaticResource WindowControlButton}"/>
+                                            <Button Content="[ ]" Command="{Binding MaximizeCommand}" Style="{StaticResource WindowControlButton}"/>
                                             <Button Content=" X " Command="{Binding CloseCommand}" Style="{StaticResource WindowCloseButton}"/>
                                         </StackPanel>
                                     </Grid>
