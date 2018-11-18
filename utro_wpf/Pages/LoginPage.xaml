@@ -28,7 +28,7 @@
                             <!-- Username -->
                             <TextBox Tag="ЛОГИН" Margin="0 0 0 15"/>
                             <!-- Password -->
-                            <TextBox Tag="ПАРОЛЬ" Margin="0 0 0 25"/>
+                            <PasswordBox Tag="ПАРОЛЬ" Margin="0 0 0 25"/>
                             <!-- Button -->
                             <Button Content="Войти"
                                     HorizontalAlignment="Center" FontSize="{StaticResource FontSizeLarge}"/>
