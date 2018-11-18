@@ -73,7 +73,7 @@
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0 0 0 2"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeRegular}"/>
-        <Setter Property="local:PasswordBoxProperties.MonitorPassword" Value="True"/>
+        <Setter Property="local:MonitorPasswordProperty.Value" Value="True"/>
         <!-- The triggers for the text boxes-->
         <Setter Property="Template">
             <Setter.Value>
@@ -84,18 +84,8 @@
                             <ScrollViewer x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                         </Border>
                         <TextBlock IsHitTestVisible="False" Text="{TemplateBinding Tag}" x:Name="Placeholder" FontFamily="{StaticResource EvolveSansEVO}" FontWeight="Thin"
-                                   Padding="{TemplateBinding Padding}" VerticalAlignment="Center" HorizontalAlignment="{TemplateBinding HorizontalAlignment}">
-                            <TextBlock.Style>
-                                <Style TargetType="{x:Type TextBlock}">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding (local:PasswordBoxProperties.HasText), RelativeSource={RelativeSource TemplatedParent}}" Value="False">
-                                            <Setter Property="Visibility" Value="Visible"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBlock.Style>
-                        </TextBlock>
+                                   Padding="{TemplateBinding Padding}" VerticalAlignment="Center" HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                   Visibility="{TemplateBinding local:HasTextProperty.Value, Converter={local:BooleanToVisibilityConverter}}"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
