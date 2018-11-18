@@ -21,10 +21,7 @@ namespace utro_wpf
         {
             PasswordBox passwordBox = d as PasswordBox;
 
-            if (passwordBox == null)
-            {
-
-            }
+            if (passwordBox == null) { }
 
             passwordBox.PasswordChanged -= PasswordBox_PasswordChanged;
 
