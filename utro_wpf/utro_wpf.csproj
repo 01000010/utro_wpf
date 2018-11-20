@@ -172,6 +172,7 @@
     <Resource Include="Fonts\EvolveSansEVO\EvolveSansEVO-Medium.otf" />
     <Resource Include="Fonts\EvolveSansEVO\EvolveSansEVO-Thin.otf" />
     <Resource Include="Fonts\EvolveSansEVO\EvolveSansEVO.otf" />
+    <None Include="DB_Data\nomenklatura.xlsx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -201,6 +202,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Logo\logo-01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DB_Data\fed_db.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.3.2.9\build\Fody.targets" Condition="Exists('..\packages\Fody.3.2.9\build\Fody.targets')" />
