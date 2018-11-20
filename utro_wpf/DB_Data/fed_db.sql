@@ -10,16 +10,16 @@ USE MASTER
 
 DECLARE @DTTM VARCHAR(55)
 SELECT @DTTM=CONVERT(VARCHAR, GETDATE(), 113)
-
 RAISERROR('Creating the database ast %s ....', 1, 1, @DTTM) WITH NOWAIT
+
 GO
 
 -- Drop the previous data base if it already existed --
 
-IF EXISTS(SELECT * FROM SYSDATABASES WHERE NAME = 'ИЗДЕЛИЕ_БД')
+IF EXISTS(SELECT * FROM SYSDATABASES WHERE NAME='izdelie')
 BEGIN
     RAISERROR('Dropping the existing database...', 0, 1)
-    DROP DATABASE ИЗДЕЛИЕ_БД
+    DROP DATABASE izdelie
 END
 GO
 
@@ -27,16 +27,17 @@ CHECKPOINT
 GO
 
 RAISERROR('Creating the database...', 0, 1)
-GO
-
-CREATE DATABASE ИЗДЕЛИЕ_БД
+CREATE DATABASE izdelie
 GO
 
 CHECKPOINT
 GO
 
-IF DB_NAME() <> 'ИЗДЕЛИЕ_БД'
-    RAISERROR('Error in initializing ИЗДЕЛИЕ_БД, ''USE ИЗДЕЛИЕ_БД'' failed! Killing the SPID now.', 22, 127) WITH LOG
+USE bitch
+GO
+
+IF DB_NAME() <> 'izdelie'
+    RAISERROR('Error in initializing izdelie, ''USE izdelie'' failed! Killing the SPID now.', 22, 127) WITH LOG
 GO
 
 -- Create the tables for the database --
@@ -158,6 +159,9 @@ CREATE TABLE ЗАКАЗАННЫЕ_ИЗДЕЛИЯ
         REFERENCES ИЗДЕЛИЕ(АРТИКУЛ),
     КОЛИЧЕСТВО NUMERIC NOT NULL
 )
+GO
+
+RAISERROR('Database created...', 0, 1)
 GO
 
 -- Read the data from the excel file and write it into the database --
