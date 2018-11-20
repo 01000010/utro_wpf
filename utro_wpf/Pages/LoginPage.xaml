@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:utro_wpf"
       mc:Ignorable="d" 
+      x:Name="Page"
       d:DesignHeight="600" d:DesignWidth="800"
       Title="LoginPage">
     
@@ -26,12 +27,13 @@
                                        FontSize="{StaticResource FontSizeRegular}" Foreground="{StaticResource Text1Brush}"
                                        Margin="0 10 0 20" FontWeight="Light"/>
                             <!-- Username -->
-                            <TextBox Tag="ЛОГИН" Margin="0 0 0 15"/>
+                            <TextBox Text="{Binding User}" Tag="ЛОГИН" Margin="0 0 0 15"/>
                             <!-- Password -->
                             <PasswordBox x:Name="PasswordText" Tag="ПАРОЛЬ" Margin="0 0 0 25"/>
                             <!-- Button -->
                             <Button Content="Войти" Command="{Binding LoginCommand}" 
-                                    CommandParameter="{Binding SecurePassword, ElementName=PasswordText}"
+                                    local:IsBusyProperty.Value="{Binding LoginIsRunning}"
+                                    CommandParameter="{Binding ElementName=Page}"
                                     HorizontalAlignment="Center" FontSize="{StaticResource FontSizeLarge}"/>
                         </StackPanel>
                     </Border>

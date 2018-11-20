@@ -11,6 +11,8 @@
     <FontFamily x:Key="EvolveSansEVO">pack://application;,,,/Fonts/EvolveSansEVO/#MADE Evolve Sans EVO</FontFamily>
     <!-- /// Lato /// -->
     <FontFamily x:Key="Lato">pack://application;,,,/Fonts/Lato/#Lato Regular</FontFamily>
+    <!-- /// Fontawesome /// -->
+    <FontFamily x:Key="FontAwesome">pack://application;,,,/Fonts/Fontawesome/#Font Awesome 5 Free Solid</FontFamily>
     <!-- Base configuration styles -->
     <Style TargetType="{x:Type Control}" x:Key="BaseStyle">
         <Setter Property="FontFamily" Value="{StaticResource EvolveSansEVO}"/>

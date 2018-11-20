@@ -6,6 +6,7 @@
         <!-- Order is important here -->
         <ResourceDictionary Source="Colors.xaml"/>
         <ResourceDictionary Source="Fonts.xaml"/>
+        <ResourceDictionary Source="Texts.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     <!-- Styles -->
     <!-- Hoverless button -->
@@ -68,15 +69,22 @@
         <Setter Property="FontFamily" Value="{StaticResource EvolveSansEVO}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Padding" Value="15 10"/>
+        <Setter Property="local:IsBusyProperty.Value" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
                     <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
                             Background="{TemplateBinding Background}" SnapsToDevicePixels="True" CornerRadius="10">
-                        <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" 
-                                          ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                                          Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        <Grid>
+                            <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" 
+                                              ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                              Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Visibility="{TemplateBinding local:IsBusyProperty.Value, Converter={local:BooleanToVisibilityConverter}}"/>
+                            <TextBlock Style="{StaticResource SpinningText}" 
+                                       Visibility="{TemplateBinding local:IsBusyProperty.Value, Converter={local:BooleanToVisibilityConverter}, ConverterParameter=True}"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
                     </Border>
                     <!-- Standard button triggers -->
                     <ControlTemplate.Triggers>

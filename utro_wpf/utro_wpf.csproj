@@ -71,16 +71,20 @@
     <Compile Include="Animation\PageAnimations.cs" />
     <Compile Include="Animation\StoryboardHelpers.cs" />
     <Compile Include="AttachedProperties\BaseAttachedProperties.cs" />
+    <Compile Include="AttachedProperties\ButtonAttachedProperties.cs" />
     <Compile Include="AttachedProperties\PasswordBoxAttachedProperties.cs" />
     <Compile Include="DataModels\ApplicationPage.cs" />
+    <Compile Include="Expressions\ExpressionsHelpers.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Security\SecureStringHelpers.cs" />
     <Compile Include="ValueConverters\ApplicationPageValueConverter.cs" />
     <Compile Include="ValueConverters\BaseValueConverter.cs" />
     <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
     <Compile Include="ViewModel\Base\BaseViewModel.cs" />
+    <Compile Include="ViewModel\Base\IHavePassword.cs" />
     <Compile Include="ViewModel\Base\RelayParameterizedCommand.cs" />
     <Compile Include="ViewModel\Base\RelayCommand.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
@@ -179,6 +183,7 @@
     <Resource Include="Fonts\EvolveSansEVO\EvolveSansEVO-Thin.otf" />
     <Resource Include="Fonts\EvolveSansEVO\EvolveSansEVO.otf" />
     <None Include="DB_Data\nomenklatura.xlsx" />
+    <Resource Include="Fonts\Fontawesome\fa-solid-900.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

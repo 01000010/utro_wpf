@@ -17,7 +17,12 @@ namespace utro_wpf
         /// <summary>
         /// Email of the user
         /// </summary>
-        public string Email { get; set; }
+        public string User { get; set; }
+
+        /// <summary>
+        /// A flag to check if the loging command is running
+        /// </summary>
+        public bool LoginIsRunning { get; set; }
 
         #endregion
 
@@ -50,7 +55,12 @@ namespace utro_wpf
         /// <returns></returns>
         public async Task Login(object parameter)
         {
-            
+            await RunCommand(() => LoginIsRunning, async () => 
+            {
+                await Task.Delay(5000); // Symulate a log in
+                string user = User;
+                string password = (parameter as IHavePassword).SecurePassword.Unsecure(); // Do never do this for fuck sake!!!
+            });
         }
     }
 }
