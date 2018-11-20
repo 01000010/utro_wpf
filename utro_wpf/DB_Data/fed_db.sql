@@ -166,48 +166,48 @@ GO
 
 -- Read the data from the excel file and write it into the database --
 
---sp_configure 'show advanced options', 1;
---RECONFIGURE;
---GO
---sp_configure 'Ad Hoc Distributed Queries', 1;
---RECONFIGURE
---GO
+sp_configure 'show advanced options', 1;
+RECONFIGURE;
+GO
+sp_configure 'Ad Hoc Distributed Queries', 1;
+RECONFIGURE
+GO
 
---USE ИЗДЕЛИЕ_БД;
---GO
---SELECT * INTO TKANI_TEMP
---FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0',
---    'Excel 12.0; Database=номенклатура.xlsx', [Ткани$])
---GO
+USE ИЗДЕЛИЕ_БД;
+GO
+SELECT * INTO TKANI_TEMP
+FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0',
+    'Excel 12.0; Database=номенклатура.xlsx', [Ткани$])
+GO
 
---USE ИЗДЕЛИЕ_БД;
---GO
---SELECT * INTO FURNI_TEMP
---FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0',
---    'Excel 12.0; Database=номерклатура.xlsx', [Фурнитура$])
---GO
+USE ИЗДЕЛИЕ_БД;
+GO
+SELECT * INTO FURNI_TEMP
+FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0',
+    'Excel 12.0; Database=номерклатура.xlsx', [Фурнитура$])
+GO
 
---USE ИЗДЕЛИЕ_БД;
---GO
---SELECT * INTO IZD_TEMP
---FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0',
---    'Excel 12.0; Database=номерклатура.xlsx', [Изделия$])
---GO
+USE ИЗДЕЛИЕ_БД;
+GO
+SELECT * INTO IZD_TEMP
+FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0',
+    'Excel 12.0; Database=номерклатура.xlsx', [Изделия$])
+GO
 
---USE ИЗДЕЛИЕ_БД;
---GO
---INSERT INTO DBO.ТКАНЬ
---    SELECT * FROM TKANI_TEMP
---GO
+USE ИЗДЕЛИЕ_БД;
+GO
+INSERT INTO DBO.ТКАНЬ
+    SELECT * FROM TKANI_TEMP
+GO
 
---USE ИЗДЕЛИЕ_БД;
---GO
---INSERT INTO DBO.ФУРНИТУРА
---    SELECT * FROM FURNI_TEMP
---GO
+USE ИЗДЕЛИЕ_БД;
+GO
+INSERT INTO DBO.ФУРНИТУРА
+    SELECT * FROM FURNI_TEMP
+GO
 
---USE ИЗДЕЛИЕ_БД;
---GO
---INSERT INTO DBO.ИЗДЕЛИЕ
---    SELECT * FROM IZD_TEMP
---GO
+USE ИЗДЕЛИЕ_БД;
+GO
+INSERT INTO DBO.ИЗДЕЛИЕ
+    SELECT * FROM IZD_TEMP
+GO

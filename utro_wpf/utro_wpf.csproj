@@ -152,6 +152,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ReferenceMaterial\read_links.rtf" />
     <Resource Include="Fonts\Lato\Lato-Black.ttf" />
     <Resource Include="Fonts\Lato\Lato-BlackItalic.ttf" />
     <Resource Include="Fonts\Lato\Lato-Bold.ttf" />
