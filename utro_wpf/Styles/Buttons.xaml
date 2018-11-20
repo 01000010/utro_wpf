@@ -80,13 +80,30 @@
                     </Border>
                     <!-- Standard button triggers -->
                     <ControlTemplate.Triggers>
+                        <!-- Animations for the button -->
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource Extra2}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color"/>
+                                    <ColorAnimation To="{StaticResource Main1}" Duration="0:0:0.3" Storyboard.TargetProperty="Foreground.Color"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource Main1}" Duration="0:0:0.3" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color"/>
+                                    <ColorAnimation To="{StaticResource Text1}" Duration="0:0:0.3" Storyboard.TargetProperty="Foreground.Color"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
                         <Trigger Property="Button.IsDefaulted" Value="True">
                             <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                         </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True">
+                        <!--<Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" TargetName="border" Value="{StaticResource Extra2Brush}"/>
                             <Setter Property="Foreground" Value="{StaticResource Main1Brush}"/>
-                        </Trigger>
+                        </Trigger>-->
                         <Trigger Property="IsPressed" Value="True">
                             <Setter Property="Background" TargetName="border" Value="{StaticResource Extra1Brush}"/>
                             <Setter Property="Foreground" Value="{StaticResource Main2Brush}"/>
@@ -123,12 +140,30 @@
                     </Border>
                     <!-- Text button triggers -->
                     <ControlTemplate.Triggers>
+                        <!-- Animations for the button -->
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource Extra2}" Duration="0:0:0.3" Storyboard.TargetProperty="Foreground.Color"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource Text1}" Duration="0:0:0.3" Storyboard.TargetProperty="Foreground.Color"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
                         <Trigger Property="Button.IsDefaulted" Value="True">
                             <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                         </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Foreground" Value="{StaticResource Extra2Brush}"/>
+                        <Trigger Property="Button.IsDefaulted" Value="True">
+                            <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                         </Trigger>
+                        <!--<Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="{StaticResource Extra2Brush}"/>
+                        </Trigger>-->
                         <Trigger Property="IsPressed" Value="True">
                             <Setter Property="Foreground" Value="{StaticResource Main2Brush}"/>
                         </Trigger>
