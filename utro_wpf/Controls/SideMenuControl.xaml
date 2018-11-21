@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="utro_wpf.SideMenuControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:utro_wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="450">
+    <UserControl.Template>
+        <ControlTemplate TargetType="UserControl">
+            <Border Background="{StaticResource Extra1Brush}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Background="{StaticResource Extra2Brush}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="&#xF07A;" Style="{StaticResource PanelButton}"/>
+                            <Button Content="&#xF09D;" Style="{StaticResource PanelButton}"/>
+                        </StackPanel>
+                        <Button Grid.Column="2" Content="&#xF013;" Style="{StaticResource PanelButton}"/>
+                    </Grid>
+                    <ContentPresenter Grid.Row="1"/>
+                </Grid>
+            </Border>
+        </ControlTemplate>
+    </UserControl.Template>
+</UserControl>

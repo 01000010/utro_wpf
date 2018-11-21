@@ -39,7 +39,7 @@ namespace utro_wpf
         /// <summary>
         /// The smallest width the window can be
         /// </summary>
-        public double WindowMinimumWidth { get; set; } = 600.0;
+        public double WindowMinimumWidth { get; set; } = 1000.0;
 
         /// <summary>
         /// The smallest height the window can be

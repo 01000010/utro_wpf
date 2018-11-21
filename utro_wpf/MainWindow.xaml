@@ -120,7 +120,16 @@
     </WindowChrome.WindowChrome>
     
     <Grid Background="{StaticResource Main1Brush}">
-        <Frame x:Name="MainFrame" 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!-- Main frame -->
+        <Frame x:Name="MainFrame" Grid.Column="1"
                Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}"/>
+        <!-- Side menu -->
+        <local:SideMenuControl>
+            <Button Content="Shit"/>
+        </local:SideMenuControl>
     </Grid>
 </Window>
