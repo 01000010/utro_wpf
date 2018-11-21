@@ -8,8 +8,8 @@ SET DATEFORMAT DMY
 
 USE MASTER
 
-DECLARE @DTTM VARCHAR(55)
-SELECT @DTTM=CONVERT(VARCHAR, GETDATE(), 113)
+DECLARE @DTTM NVARCHAR(55)
+SELECT @DTTM=CONVERT(NVARCHAR, GETDATE(), 113)
 RAISERROR('Creating the database ast %s ....', 1, 1, @DTTM) WITH NOWAIT
 
 GO
@@ -33,7 +33,7 @@ GO
 CHECKPOINT
 GO
 
-USE bitch
+USE izdelie
 GO
 
 IF DB_NAME() <> 'izdelie'
@@ -44,55 +44,55 @@ GO
 
 CREATE TABLE ИЗДЕЛИЕ
 (
-    АРТИКУЛ VARCHAR(10) NOT NULL
+    АРТИКУЛ NVARCHAR(300) NOT NULL
         PRIMARY KEY CLUSTERED,
-    НАИМЕНОВАНИЕ VARCHAR(100) NOT NULL,
-    ШИРИНА NUMERIC NOT NULL,
-    ДЛИНА NUMERIC NOT NULL,
-    ИЗОБРАЖЕНИЕ VARCHAR(50) NULL,
-    КОММЕНТАРИЙ VARCHAR(MAX) NULL
+    НАИМЕНОВАНИЕ NVARCHAR(300) NULL,
+    ШИРИНА NUMERIC NULL,
+    ДЛИНА NUMERIC NULL,
+    ИЗОБРАЖЕНИЕ NVARCHAR(300) NULL,
+    КОММЕНТАРИЙ NVARCHAR(MAX) NULL
 )
 GO
 
 CREATE TABLE ПОЛЬЗОВАТЕЛЬ
 (
-    ЛОГИН VARCHAR(50) NOT NULL
+    ЛОГИН NVARCHAR(300) NOT NULL
         PRIMARY KEY CLUSTERED,
-    ПАРОЛЬ VARCHAR(MAX) NOT NULL,
-    РОЛЬ VARCHAR(50) NOT NULL,
-    НАИМЕНОВАНИЕ VARCHAR(50) NULL
+    ПАРОЛЬ NVARCHAR(MAX) NOT NULL,
+    РОЛЬ NVARCHAR(300) NOT NULL,
+    НАИМЕНОВАНИЕ NVARCHAR(300) NULL
 )
 GO
 
 CREATE TABLE ТКАНЬ
 (
-    АРТИКУЛ VARCHAR(10) NOT NULL
+    АРТИКУЛ NVARCHAR(300) NOT NULL
         PRIMARY KEY CLUSTERED,
-    НАИМЕНОВАНИЕ VARCHAR(100) NOT NULL,
-    ЦВЕТ VARCHAR(50) NULL,
-    РИСУНОК VARCHAR(50) NULL,
-    ИЗОБРАЖЕНИЕ VARCHAR(50) NULL,
-    СОСТАВ VARCHAR(MAX) NULL,
-    ШИРИНА NUMERIC NOT NULL,
-    ДЛИНА NUMERIC NOT NULL,
-    ЦЕНА MONEY NOT NULL
+    НАИМЕНОВАНИЕ NVARCHAR(300) NULL,
+    ЦВЕТ NVARCHAR(300) NULL,
+    РИСУНОК NVARCHAR(300) NULL,
+    ИЗОБРАЖЕНИЕ NVARCHAR(300) NULL,
+    СОСТАВ NVARCHAR(MAX) NULL,
+    ШИРИНА NUMERIC NULL,
+    ДЛИНА NUMERIC NULL,
+    ЦЕНА MONEY NULL
 )
 GO
 
 CREATE TABLE ТКАНИ_ИЗДЕЛИЯ
 (
-    АРТИКУЛ_ТКАНИ VARCHAR(10) NOT NULL
+    АРТИКУЛ_ТКАНИ NVARCHAR(300) NOT NULL
         REFERENCES ТКАНЬ(АРТИКУЛ),
-    АРТИКУЛ_ИЗДЕЛИЯ VARCHAR(10) NOT NULL
+    АРТИКУЛ_ИЗДЕЛИЯ NVARCHAR(300) NOT NULL
         REFERENCES ИЗДЕЛИЕ(АРТИКУЛ)
 )
 GO
 
 CREATE TABLE СКЛАД_ТКАНИ
 (
-    РУЛОН VARCHAR(10) NOT NULL
+    РУЛОН NVARCHAR(300) NOT NULL
         PRIMARY KEY CLUSTERED,
-    АРТИКУЛ_ТКАНИ VARCHAR(10) NOT NULL
+    АРТИКУЛ_ТКАНИ NVARCHAR(300) NOT NULL
         REFERENCES ТКАНЬ(АРТИКУЛ),
     ШИРИНА NUMERIC NOT NULL,
     ДЛИНА NUMERIC NOT NULL
@@ -101,25 +101,25 @@ GO
 
 CREATE TABLE ФУРНИТУРА 
 (
-    АРТИКУЛ VARCHAR(10) NOT NULL
+    АРТИКУЛ NVARCHAR(300) NOT NULL
         PRIMARY KEY CLUSTERED,
-    НАИМЕНОВАНИЕ VARCHAR(100) NOT NULL,
-    ТИП VARCHAR(50) NOT NULL,
-    ШИРИНА NUMERIC NOT NULL,
+    НАИМЕНОВАНИЕ NVARCHAR(300) NULL,
+    ТИП NVARCHAR(300) NULL,
+    ШИРИНА NUMERIC NULL,
     ДЛИНА NUMERIC NULL,
     ВЕС NUMERIC NULL,
-    ИЗОБРАЖЕНИЕ VARCHAR(50) NULL,
-    ЦЕНА MONEY NOT NULL
+    ИЗОБРАЖЕНИЕ NVARCHAR(300) NULL,
+    ЦЕНА MONEY NULL
 )
 GO
 
 CREATE TABLE ФУРНИТУРА_ИЗДЕЛИЯ
 (
-    АРТИКУЛ_ФУРНИТУРЫ VARCHAR(10) NOT NULL
+    АРТИКУЛ_ФУРНИТУРЫ NVARCHAR(300) NOT NULL
         REFERENCES ФУРНИТУРА(АРТИКУЛ),
-    АРТИКУЛ_ИЗДЕЛИЯ VARCHAR(10) NOT NULL
+    АРТИКУЛ_ИЗДЕЛИЯ NVARCHAR(300) NOT NULL
         REFERENCES ИЗДЕЛИЕ(АРТИКУЛ),
-    РАЗМЕЩЕНИЕ VARCHAR(200) NOT NULL,
+    РАЗМЕЩЕНИЕ NVARCHAR(300) NOT NULL,
     ШИРИНА NUMERIC NULL,
     ДЛИНА NUMERIC NULL,
     ПОВОРОТ NUMERIC NULL,
@@ -129,9 +129,9 @@ GO
 
 CREATE TABLE СКЛАД_ФУРНИТУРЫ
 (
-    ПАРТИЯ VARCHAR(10) NOT NULL
+    ПАРТИЯ NVARCHAR(300) NOT NULL
         PRIMARY KEY CLUSTERED,
-    АРТИКУЛ_ФУРНИТУРЫ VARCHAR(10) NOT NULL
+    АРТИКУЛ_ФУРНИТУРЫ NVARCHAR(300) NOT NULL
         REFERENCES ФУРНИТУРА(АРТИКУЛ),
     КОЛИЧЕСТВО NUMERIC NOT NULL
 )
@@ -139,13 +139,13 @@ GO
 
 CREATE TABLE ЗАКАЗ 
 (
-    НОМЕР VARCHAR(10) NOT NULL
+    НОМЕР NVARCHAR(300) NOT NULL
         PRIMARY KEY CLUSTERED,
     ДАТА DATETIME NOT NULL,
-    ЭТАП_ВЫПОЛНЕНИЯ VARCHAR(50) NOT NULL,
-    ЗАКАЗЧИК VARCHAR(50) NOT NULL
+    ЭТАП_ВЫПОЛНЕНИЯ NVARCHAR(300) NOT NULL,
+    ЗАКАЗЧИК NVARCHAR(300) NOT NULL
         REFERENCES ПОЛЬЗОВАТЕЛЬ(ЛОГИН),
-    МЕНЕДЖЕР VARCHAR(50) NOT NULL
+    МЕНЕДЖЕР NVARCHAR(300) NOT NULL
         REFERENCES ПОЛЬЗОВАТЕЛЬ(ЛОГИН),
     СТОИМОСТЬ MONEY NULL 
 )
@@ -153,61 +153,13 @@ GO
 
 CREATE TABLE ЗАКАЗАННЫЕ_ИЗДЕЛИЯ 
 (
-    НОМЕР_ЗАКАЗА VARCHAR(10) NOT NULL
+    НОМЕР_ЗАКАЗА NVARCHAR(300) NOT NULL
         REFERENCES ЗАКАЗ(НОМЕР),
-    АРТИКУЛ VARCHAR(10) NOT NULL
+    АРТИКУЛ NVARCHAR(300) NOT NULL
         REFERENCES ИЗДЕЛИЕ(АРТИКУЛ),
     КОЛИЧЕСТВО NUMERIC NOT NULL
 )
 GO
 
 RAISERROR('Database created...', 0, 1)
-GO
-
--- Read the data from the excel file and write it into the database --
-
-sp_configure 'show advanced options', 1;
-RECONFIGURE;
-GO
-sp_configure 'Ad Hoc Distributed Queries', 1;
-RECONFIGURE
-GO
-
-USE izdelie;
-GO
-SELECT * INTO TKANI_TEMP
-FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0',
-    'Excel 12.0; Database=номенклатура.xlsx', [Ткани$])
-GO
-
-USE izdelie;
-GO
-SELECT * INTO FURNI_TEMP
-FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0',
-    'Excel 12.0; Database=номерклатура.xlsx', [Фурнитура$])
-GO
-
-USE izdelie;
-GO
-SELECT * INTO IZD_TEMP
-FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0',
-    'Excel 12.0; Database=номерклатура.xlsx', [Изделия$])
-GO
-
-USE izdelie;
-GO
-INSERT INTO DBO.ТКАНЬ
-    SELECT * FROM TKANI_TEMP
-GO
-
-USE izdelie;
-GO
-INSERT INTO DBO.ФУРНИТУРА
-    SELECT * FROM FURNI_TEMP
-GO
-
-USE izdelie;
-GO
-INSERT INTO DBO.ИЗДЕЛИЕ
-    SELECT * FROM IZD_TEMP
 GO
