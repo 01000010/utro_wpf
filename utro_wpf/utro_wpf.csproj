@@ -223,7 +223,8 @@
     <Resource Include="Images\Logo\logo-01.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DB_Data\fed_db.sql" />
+    <Content Include="DB_Data\fed_db_create_database.sql" />
+    <Content Include="DB_Data\fed_db_load_data.sql" />
     <Content Include="DB_Data\office_macros.vb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
