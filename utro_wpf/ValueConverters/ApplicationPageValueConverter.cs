@@ -16,6 +16,10 @@ namespace utro_wpf
             {
                 case ApplicationPage.Login:
                     return new LoginPage();
+
+                case ApplicationPage.Shop:
+                    return new ShopPage();
+
                 default:
                     Debugger.Break();
                     return null;

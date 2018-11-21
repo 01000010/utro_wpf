@@ -173,40 +173,40 @@ sp_configure 'Ad Hoc Distributed Queries', 1;
 RECONFIGURE
 GO
 
-USE ИЗДЕЛИЕ_БД;
+USE izdelie;
 GO
 SELECT * INTO TKANI_TEMP
 FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0',
     'Excel 12.0; Database=номенклатура.xlsx', [Ткани$])
 GO
 
-USE ИЗДЕЛИЕ_БД;
+USE izdelie;
 GO
 SELECT * INTO FURNI_TEMP
 FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0',
     'Excel 12.0; Database=номерклатура.xlsx', [Фурнитура$])
 GO
 
-USE ИЗДЕЛИЕ_БД;
+USE izdelie;
 GO
 SELECT * INTO IZD_TEMP
 FROM OPENROWSET('Microsoft.ACE.OLEDB.12.0',
     'Excel 12.0; Database=номерклатура.xlsx', [Изделия$])
 GO
 
-USE ИЗДЕЛИЕ_БД;
+USE izdelie;
 GO
 INSERT INTO DBO.ТКАНЬ
     SELECT * FROM TKANI_TEMP
 GO
 
-USE ИЗДЕЛИЕ_БД;
+USE izdelie;
 GO
 INSERT INTO DBO.ФУРНИТУРА
     SELECT * FROM FURNI_TEMP
 GO
 
-USE ИЗДЕЛИЕ_БД;
+USE izdelie;
 GO
 INSERT INTO DBO.ИЗДЕЛИЕ
     SELECT * FROM IZD_TEMP

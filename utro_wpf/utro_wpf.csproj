@@ -224,6 +224,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DB_Data\fed_db.sql" />
+    <Content Include="DB_Data\office_macros.vb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.3.2.9\build\Fody.targets" Condition="Exists('..\packages\Fody.3.2.9\build\Fody.targets')" />

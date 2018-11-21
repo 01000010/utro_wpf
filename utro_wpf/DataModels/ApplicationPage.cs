@@ -9,5 +9,9 @@
         /// The initial login page
         /// </summary>
         Login = 0,
+        /// <summary>
+        /// The shop page for all of the items
+        /// </summary>
+        Shop = 1,
     }
 }

@@ -17,18 +17,13 @@ using System.Windows.Shapes;
 namespace utro_wpf
 {
     /// <summary>
-    /// Interaction logic for LoginPage.xaml
+    /// Interaction logic for ShopPage.xaml
     /// </summary>
-    public partial class LoginPage : BasePage<LoginViewModel>, IHavePassword
+    public partial class ShopPage : BasePage<LoginViewModel>
     {
-        public LoginPage()
+        public ShopPage()
         {
             InitializeComponent();
         }
-
-        /// <summary>
-        /// The secure password for this login page
-        /// </summary>
-        public SecureString SecurePassword => PasswordText.SecurePassword;
     }
 }
