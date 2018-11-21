@@ -33,4 +33,12 @@
     <system:Double x:Key="FontSizeLarge">30</system:Double>
     <system:Double x:Key="FontSizeExtraLarge">42</system:Double>
     <system:Double x:Key="FontSizeUltraLarge">64</system:Double>
+    <!-- Icons -->
+    <system:String x:Key="Loading">&#xF110;</system:String>
+    <system:String x:Key="Store">&#xF07A;</system:String>
+    <system:String x:Key="Basket">&#xF291;</system:String>
+    <system:String x:Key="Bed">&#xF236;</system:String>
+    <system:String x:Key="Shirt">&#xF553;</system:String>
+    <system:String x:Key="Sofa">&#xF4B8;</system:String>
+    <system:String x:Key="Card">&#xF09D;</system:String>
 </ResourceDictionary>

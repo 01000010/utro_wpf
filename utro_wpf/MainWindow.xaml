@@ -129,7 +129,7 @@
                Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}"/>
         <!-- Side menu -->
         <local:SideMenuControl>
-            <Button Content="Shit"/>
+            <!-- Here some of the side menu things -->
         </local:SideMenuControl>
     </Grid>
 </Window>
