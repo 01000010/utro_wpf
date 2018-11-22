@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="utro_wpf.BasketListItemControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:utro_wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="70" d:DesignWidth="370">
+    <Grid Height="70" Background="{StaticResource Extra1Brush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!-- Selected item -->
+        <Border Width="10" Background="{StaticResource Main2Brush}"/>
+        <!-- Item picture -->
+        <Border Grid.Column="1" Padding="8">
+            <Border Background="{StaticResource Main2Brush}"
+                    Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                    CornerRadius="{Binding ActualHeight, RelativeSource={RelativeSource Self}}">
+                <TextBlock Text="N/A" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                           Foreground="{StaticResource Text1Brush}" FontSize="{StaticResource FontSizeRegular}"/>
+            </Border>
+        </Border>
+        <!-- Item name and description -->
+        <Border Grid.Column="2" Padding="0 0 8 0">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="NO NAME" FontSize="{StaticResource FontSizeLarge}" 
+                       HorizontalAlignment="Left" Padding="5 0 0 0"/>
+                <TextBlock Text="No description for this item." FontSize="{StaticResource FontSizeRegular}"
+                       HorizontalAlignment="Left" Padding="5 0 0 0" TextTrimming="CharacterEllipsis"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

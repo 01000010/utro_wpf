@@ -76,6 +76,9 @@
     <Compile Include="Controls\SideMenuControl.xaml.cs">
       <DependentUpon>SideMenuControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Store\BasketListItemControl.xaml.cs">
+      <DependentUpon>BasketListItemControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataModels\ApplicationPage.cs" />
     <Compile Include="Expressions\ExpressionsHelpers.cs" />
     <Compile Include="Pages\BasePage.cs" />
@@ -97,6 +100,10 @@
     <Compile Include="ViewModel\WindowViewModel.cs" />
     <Compile Include="Window\WindowResizer.cs" />
     <Page Include="Controls\SideMenuControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Store\BasketListItemControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

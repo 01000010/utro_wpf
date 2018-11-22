@@ -11,9 +11,9 @@
         x:Name="UtroDesktopApp"
         WindowStartupLocation="CenterScreen"
         Title="ДОБРО ПОЖАЛОВАТЬ!"
-        Height="700" 
+        Height="720" 
         MinHeight="{Binding WindowMinimumHeight}"
-        Width="1000"
+        Width="1280"
         MinWidth="{Binding WindowMinimumWidth}">
     
     <!-- The resources for the window -->
@@ -121,7 +121,7 @@
     
     <Grid Background="{StaticResource Main1Brush}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="350"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <!-- Main frame -->
@@ -129,7 +129,7 @@
                Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}"/>
         <!-- Side menu -->
         <local:SideMenuControl>
-            <!-- Here some of the side menu things -->
+                <local:BasketListItemControl VerticalAlignment="Top"/>
         </local:SideMenuControl>
     </Grid>
 </Window>

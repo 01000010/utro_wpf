@@ -31,6 +31,7 @@
     <system:Double x:Key="FontSizeSmall">12</system:Double>
     <system:Double x:Key="FontSizeTiny">10</system:Double>
     <system:Double x:Key="FontSizeLarge">30</system:Double>
+    <system:Double x:Key="FontSizeLarger">37</system:Double>
     <system:Double x:Key="FontSizeExtraLarge">42</system:Double>
     <system:Double x:Key="FontSizeUltraLarge">64</system:Double>
     <!-- Icons -->
