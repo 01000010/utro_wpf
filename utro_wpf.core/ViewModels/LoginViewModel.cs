@@ -68,6 +68,8 @@ namespace utro_wpf.core
                 await Task.Delay(5000); // Symulate a log in
                 string user = User;
                 string password = (parameter as IHavePassword).SecurePassword.Unsecure(); // Do never do this for fuck sake!!!
+                // If succesuful, go to store
+                await GoStore();
             });
         }
         
@@ -77,8 +79,17 @@ namespace utro_wpf.core
         /// <returns></returns>
         public async Task GoRegister()
         {
-            // ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Register;
             IoC.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.Register;
+            await Task.Delay(1);
+        }
+
+        /// <summary>
+        /// Takes the user to the store
+        /// </summary>
+        /// <returns></returns>
+        public async Task GoStore()
+        {
+            IoC.Get<ApplicationViewModel>().SideMenuVisible ^= true;
             await Task.Delay(1);
         }
 

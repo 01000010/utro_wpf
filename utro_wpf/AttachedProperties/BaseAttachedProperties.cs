@@ -17,6 +17,11 @@ namespace utro_wpf
         /// </summary>
         public event Action<DependencyObject, DependencyPropertyChangedEventArgs> ValueChanged = (sender, e) => { };
 
+        /// <summary>
+        /// Fired when the value is updated even if it's the same
+        /// </summary>
+        public event Action<DependencyObject, object> ValueUpdated = (sender, value) => { };
+
         #endregion
 
         #region Public Properties
@@ -35,7 +40,22 @@ namespace utro_wpf
         /// </summary>
         public static readonly DependencyProperty ValueProperty = 
             DependencyProperty.RegisterAttached("Value", typeof(Property), typeof(BaseAttachedProperties<Parent, Property>), 
-                new PropertyMetadata(new PropertyChangedCallback(OnValuePropertyChanged)));
+                new UIPropertyMetadata(default(Property), new PropertyChangedCallback(OnValuePropertyChanged), new CoerceValueCallback(OnValuePropertyUpdated)));
+
+        /// <summary>
+        /// The called back event when the <see cref="ValueProperty"/> is updated
+        /// </summary>
+        /// <param name="d">The UI element that has it's proerty changed</param>
+        /// <param name="e">The arguments for the event</param>
+        private static object OnValuePropertyUpdated(DependencyObject d, object value)
+        {
+            // Call the parent function
+            Instance.OnValueUpdated(d, value);
+
+            // Call event listeners
+            Instance.ValueUpdated(d, value);
+            return value;
+        }
 
         /// <summary>
         /// The called back event when the <see cref="ValueProperty"/> is changed
@@ -75,6 +95,13 @@ namespace utro_wpf
         /// <param name="sender">The UI element that this property was changed for</param>
         /// <param name="e">The arguments for this event</param>
         public virtual void OnValueChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e) { }
+
+        /// <summary>
+        /// The method that is called when any property of this type is updated
+        /// </summary>
+        /// <param name="sender">The UI element that this property was updated for</param>
+        /// <param name="e">The value of the object</param>
+        public virtual void OnValueUpdated(DependencyObject sender, object value) { }
 
         #endregion
     }
