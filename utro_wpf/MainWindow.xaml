@@ -129,7 +129,7 @@
                Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}"/>
         <!-- Side menu -->
         <local:SideMenuControl>
-                <local:BasketListItemControl VerticalAlignment="Top"/>
+            <local:BasketListControl/>
         </local:SideMenuControl>
     </Grid>
 </Window>

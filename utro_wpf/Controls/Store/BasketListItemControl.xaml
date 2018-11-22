@@ -5,32 +5,75 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:utro_wpf"
              mc:Ignorable="d" 
+             Height="70"
              d:DesignHeight="70" d:DesignWidth="370">
-    <Grid Height="70" Background="{StaticResource Extra1Brush}">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <!-- Selected item -->
-        <Border Width="10" Background="{StaticResource Main2Brush}"/>
-        <!-- Item picture -->
-        <Border Grid.Column="1" Padding="8">
-            <Border Background="{StaticResource Main2Brush}"
-                    Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
-                    CornerRadius="{Binding ActualHeight, RelativeSource={RelativeSource Self}}">
-                <TextBlock Text="N/A" VerticalAlignment="Center" HorizontalAlignment="Center" 
-                           Foreground="{StaticResource Text1Brush}" FontSize="{StaticResource FontSizeRegular}"/>
-            </Border>
-        </Border>
-        <!-- Item name and description -->
-        <Border Grid.Column="2" Padding="0 0 8 0">
-            <StackPanel VerticalAlignment="Center">
-                <TextBlock Text="NO NAME" FontSize="{StaticResource FontSizeLarge}" 
-                       HorizontalAlignment="Left" Padding="5 0 0 0"/>
-                <TextBlock Text="No description for this item." FontSize="{StaticResource FontSizeRegular}"
-                       HorizontalAlignment="Left" Padding="5 0 0 0" TextTrimming="CharacterEllipsis"/>
-            </StackPanel>
-        </Border>
-    </Grid>
+    
+    <UserControl.Resources>
+        <Style x:Key="ContentStyle" TargetType="{x:Type ContentControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ContentControl}">
+                        <Border x:Name="background" Height="70" Background="{StaticResource Extra1Brush}">
+                            <Grid x:Name="container" Background="Transparent">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <!-- Item picture -->
+                                <Border Grid.Column="0" Padding="8">
+                                    <Border Background="{StaticResource Main2Brush}"
+                                            Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                                            CornerRadius="{Binding ActualHeight, RelativeSource={RelativeSource Self}}">
+                                        <TextBlock Text="N/A" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                                   Foreground="{StaticResource Text1Brush}" FontSize="{StaticResource FontSizeRegular}"
+                                                   FontFamily="{StaticResource EvolveSansEVO}"/>
+                                    </Border>
+                                </Border>
+                                <!-- Item name and description -->
+                                <Border Grid.Column="1" Padding="0 0 8 0">
+                                    <StackPanel VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding ItemName, FallbackValue='NO NAME'}" 
+                                                   FontSize="{StaticResource FontSizeLarge}" 
+                                                   HorizontalAlignment="Left" Padding="5 0 0 0" TextTrimming="CharacterEllipsis"
+                                                   FontFamily="{StaticResource EvolveSansEVO}"/>
+                                        <TextBlock Text="{Binding ItemDescription, FallbackValue='No item description'}" 
+                                                   FontSize="{StaticResource FontSizeRegular}"
+                                                   HorizontalAlignment="Left" Padding="5 0 0 0" TextTrimming="CharacterEllipsis"
+                                                   FontFamily="{StaticResource EvolveSansEVO}"/>
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <!-- Hover effects -->
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource Main1}" Duration="0:0:0.3" 
+                                                        Storyboard.TargetName="container" 
+                                                        Storyboard.TargetProperty="Background.Color"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="Transparent" Duration="0:0:0.3" 
+                                                        Storyboard.TargetName="container" 
+                                                        Storyboard.TargetProperty="Background.Color"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <DataTrigger Binding="{Binding IsSelected}" Value="True">
+                                <Setter Property="Background" TargetName="background" Value="{StaticResource Main1Brush}"/>
+                            </DataTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    
+    <ContentControl d:DataContext="{x:Static local:BasketListItemDesignModel.Instance}"
+                    Style="{StaticResource ContentStyle}"/>
 </UserControl>
