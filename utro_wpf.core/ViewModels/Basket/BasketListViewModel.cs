@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace utro_wpf
+namespace utro_wpf.core
 {
     /// <summary>
     /// A view model for the list of items

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace utro_wpf
+namespace utro_wpf.core
 {
     /// <summary>
     /// The design model for <see cref="BasketListItemViewModel"/>... to preview what we do in design.

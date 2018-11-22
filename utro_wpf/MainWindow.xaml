@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:utro_wpf"
+        xmlns:core="clr-namespace:utro_wpf.core"
         mc:Ignorable="d"
         Icon="Images/Logo/logo-02.jpg"
         WindowStyle="None"
@@ -126,7 +127,7 @@
         </Grid.ColumnDefinitions>
         <!-- Main frame -->
         <Frame x:Name="MainFrame" Grid.Column="1"
-               Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}"/>
+               Content="{Binding ApplicationViewModel.CurrentPage, ElementName=UtroDesktopApp, Converter={local:ApplicationPageValueConverter}}"/>
         <!-- Side menu -->
         <local:SideMenuControl>
             <local:BasketListControl/>

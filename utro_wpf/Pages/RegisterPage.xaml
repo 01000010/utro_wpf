@@ -1,4 +1,4 @@
-﻿<local:BasePage x:TypeArguments="core:LoginViewModel" x:Class="utro_wpf.LoginPage"
+﻿<local:BasePage x:TypeArguments="core:LoginViewModel" x:Class="utro_wpf.RegisterPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -20,7 +20,7 @@
                             Width="426" Margin="50 10 50 0">
                         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                             <!-- Title text -->
-                            <TextBlock Text="У Т Р О" FontFamily="{StaticResource EvolveSansEVO}" FontWeight="UltraBold"
+                            <TextBlock Text="Регистрация" FontFamily="{StaticResource EvolveSansEVO}" FontWeight="UltraBold"
                                        FontSize="{StaticResource FontSizeExtraLarge}" Foreground="White"
                                        Margin="0 0 0 0"/>
                             <!-- Subtext -->
@@ -32,15 +32,15 @@
                             <!-- Password -->
                             <PasswordBox x:Name="PasswordText" Tag="ПАРОЛЬ" Margin="0 0 0 25"/>
                             <!-- Button -->
-                            <Button Content="Войти" Command="{Binding LoginCommand}"
+                            <Button Content="Зарегистрироваться" Command="{Binding LoginCommand}"
                                     local:IsBusyProperty.Value="{Binding LoginIsRunning}"
                                     CommandParameter="{Binding ElementName=Page}"
                                     HorizontalAlignment="Center" FontSize="{StaticResource FontSizeLarge}"/>
                         </StackPanel>
                     </Border>
-                    <Button Content="Создать новый аккаунт." FontSize="{StaticResource FontSizeRegular}"
+                    <Button Content="У меня есть аккаунт." FontSize="{StaticResource FontSizeRegular}"
                             HorizontalAlignment="Center" Style="{StaticResource TextButton}"
-                            Command="{Binding GoRegisterCommand}"/>
+                            Command="{Binding GoLoginCommand}"/>
                 </StackPanel>
             </ScrollViewer>
         </Grid>

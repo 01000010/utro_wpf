@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace utro_wpf
+namespace utro_wpf.core
 {
     /// <summary>
     /// A basic command that runs an Action
     /// </summary>
-    public class RelayCommand : ICommand
+    public class RelayParameterizedCommand : ICommand
     {
         #region Private Members
 
         /// <summary>
         /// The action to run
         /// </summary>
-        private Action mAction;
+        private Action<object> mAction;
 
         #endregion
 
@@ -31,7 +31,7 @@ namespace utro_wpf
         /// <summary>
         /// Default constructor
         /// </summary>
-        public RelayCommand(Action action)
+        public RelayParameterizedCommand(Action<object> action)
         {
             mAction = action;
         }
@@ -56,7 +56,7 @@ namespace utro_wpf
         /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
-            mAction();
+            mAction(parameter);
         }
 
         #endregion

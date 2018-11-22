@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace utro_wpf
+namespace utro_wpf.core
 {
     /// <summary>
     /// A helper for expressions

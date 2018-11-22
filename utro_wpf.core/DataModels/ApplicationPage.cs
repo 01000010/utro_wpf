@@ -1,4 +1,4 @@
-﻿namespace utro_wpf
+﻿namespace utro_wpf.core
 {
     /// <summary>
     /// A page of the application
@@ -13,5 +13,9 @@
         /// The shop page for all of the items
         /// </summary>
         Shop = 1,
+        /// <summary>
+        /// The registration page
+        /// </summary>
+        Register = 2,
     }
 }

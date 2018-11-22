@@ -2,6 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
+using utro_wpf.core;
 
 namespace utro_wpf
 {
@@ -119,11 +120,6 @@ namespace utro_wpf
         /// The height of the title bar (the top bar of the window)
         /// </summary>
         public GridLength TitleHeightGridLength { get { return new GridLength(TitleHeight + ResizeBorder); } }
-
-        /// <summary>
-        /// The current page of the application
-        /// </summary>
-        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Shop; /////////////////// AAAAAAAAAAAAAAAAAAAAAAAAAAAAA /////////////////////////
 
         #endregion
 

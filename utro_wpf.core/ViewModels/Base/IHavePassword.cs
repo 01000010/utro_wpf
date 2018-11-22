@@ -5,7 +5,7 @@ using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace utro_wpf
+namespace utro_wpf.core
 {
     /// <summary>
     /// An interface for a class that can provide a secure password

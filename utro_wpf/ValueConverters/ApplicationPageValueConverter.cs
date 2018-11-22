@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Diagnostics;
+using utro_wpf.core;
 
 namespace utro_wpf
 {
@@ -19,6 +20,9 @@ namespace utro_wpf
 
                 case ApplicationPage.Shop:
                     return new ShopPage();
+
+                case ApplicationPage.Register:
+                    return new RegisterPage();
 
                 default:
                     Debugger.Break();

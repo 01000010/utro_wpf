@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace utro_wpf
+namespace utro_wpf.core
 {
     /// <summary>
     /// The view model for a longin screen
@@ -33,6 +33,11 @@ namespace utro_wpf
         /// </summary>
         public ICommand LoginCommand { get; set; }
 
+        /// <summary>
+        /// The command to go to the register page
+        /// </summary>
+        public ICommand GoRegisterCommand { get; set; }
+
         #endregion
 
         #region Constructor
@@ -44,9 +49,12 @@ namespace utro_wpf
         public LoginViewModel()
         {
             LoginCommand = new RelayParameterizedCommand(async (parameter) => await Login(parameter));
+            GoRegisterCommand = new RelayCommand(async () => await GoRegister());
         }
 
         #endregion
+
+        #region Commands
 
         /// <summary>
         /// Attempts to log the user in
@@ -62,5 +70,18 @@ namespace utro_wpf
                 string password = (parameter as IHavePassword).SecurePassword.Unsecure(); // Do never do this for fuck sake!!!
             });
         }
+        
+        /// <summary>
+        /// Takes the user to the register page
+        /// </summary>
+        /// <returns></returns>
+        public async Task GoRegister()
+        {
+            // ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Register;
+            
+            await Task.Delay(100);
+        }
+
+        #endregion
     }
 }

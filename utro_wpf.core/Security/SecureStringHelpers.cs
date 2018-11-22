@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Security;
 using System.Runtime.InteropServices;
 
-namespace utro_wpf
+namespace utro_wpf.core
 {
     /// <summary>
     /// Helpers for the <see cref="SecureString"/> class
