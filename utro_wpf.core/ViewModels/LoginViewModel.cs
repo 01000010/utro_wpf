@@ -78,8 +78,8 @@ namespace utro_wpf.core
         public async Task GoRegister()
         {
             // ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Register;
-            
-            await Task.Delay(100);
+            IoC.Get<ApplicationViewModel>().CurrentPage = ApplicationPage.Register;
+            await Task.Delay(1);
         }
 
         #endregion
