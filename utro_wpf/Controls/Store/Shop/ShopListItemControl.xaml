@@ -50,7 +50,7 @@
                             <EventTrigger RoutedEvent="MouseEnter">
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <ColorAnimation To="{StaticResource Main1}" Duration="0:0:0.3" 
+                                        <ColorAnimation To="{StaticResource Extra2}" Duration="0:0:0.3" 
                                                         Storyboard.TargetName="container" 
                                                         Storyboard.TargetProperty="Background.Color"/>
                                     </Storyboard>
