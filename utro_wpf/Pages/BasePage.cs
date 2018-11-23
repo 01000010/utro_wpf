@@ -8,19 +8,10 @@ using utro_wpf.core;
 namespace utro_wpf
 {
     /// <summary>
-    /// A base page for all the pages to gain functionality    
+    /// A base page for all the pages to gain functionality
     /// </summary>
-    public class BasePage<VM> : Page where VM : BaseViewModel, new()
+    public class BasePage : Page
     {
-        #region Private Member
-
-        /// <summary>
-        /// The view model associated with this
-        /// </summary>
-        private VM mViewModel;
-
-        #endregion
-
         #region Public Properties
 
         /// <summary>
@@ -36,25 +27,16 @@ namespace utro_wpf
         /// <summary>
         /// The amount of time taken by the animations
         /// </summary>
-        public float SlideSeconds { get; set; } = 0.8f;
+        public float SlideSeconds { get; set; } = 0.5f;
 
-        public VM ViewModel
-        {
-            get { return mViewModel; }
-            set
-            {
-                // If nothing has changed about the page return
-                if (mViewModel == value) return;
-                // Otherwise update the value
-                mViewModel = value;
-                // Set the data context for this page
-                DataContext = mViewModel;
-            }
-        }
+        /// <summary>
+        /// A flag to indicate if this page should animate out.
+        /// </summary>
+        public bool ShouldAnimateOut { get; set; }
 
         #endregion
 
-        #region Constructors
+        #region Constructor
 
         /// <summary>
         /// Default constructor
@@ -69,9 +51,6 @@ namespace utro_wpf
 
             // Listen for the page loading
             Loaded += BasePage_Loaded;
-
-            // By default make a new viewmodel
-            DataContext = new VM();
         }
 
         #endregion
@@ -85,7 +64,14 @@ namespace utro_wpf
         /// <param name="e"></param>
         private async void BasePage_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            await AnimateIn();
+            if (ShouldAnimateOut)
+            {
+                await AnimateOut();
+            }
+            else
+            {
+                await AnimateIn();
+            }
         }
 
         /// <summary>
@@ -112,12 +98,58 @@ namespace utro_wpf
         {
             if (PageUnloadAnimation == PageAnimation.None) return;
 
-            switch(PageUnloadAnimation)
+            switch (PageUnloadAnimation)
             {
                 case PageAnimation.SlideAndFadeToLeft:
                     await this.SlideAndFadeOutToLeft(SlideSeconds);
                     break;
             }
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// A base page with added ViewModel support
+    /// </summary>
+    public class BasePage<VM> : BasePage where VM : BaseViewModel, new()
+    {
+        #region Private Member
+
+        /// <summary>
+        /// The view model associated with this
+        /// </summary>
+        private VM mViewModel;
+
+        #endregion
+
+        #region Public Properties
+
+        public VM ViewModel
+        {
+            get { return mViewModel; }
+            set
+            {
+                // If nothing has changed about the page return
+                if (mViewModel == value) return;
+                // Otherwise update the value
+                mViewModel = value;
+                // Set the data context for this page
+                DataContext = mViewModel;
+            }
+        }
+
+        #endregion
+
+        #region Constructors
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public BasePage() : base()
+        {
+            // By default make a new viewmodel
+            DataContext = new VM();
         }
 
         #endregion

@@ -20,7 +20,7 @@ namespace utro_wpf
     /// <summary>
     /// Interaction logic for LoginPage.xaml
     /// </summary>
-    public partial class RegisterPage : BasePage<LoginViewModel>, IHavePassword
+    public partial class RegisterPage : BasePage<RegisterViewModel>, IHavePassword
     {
         public RegisterPage()
         {

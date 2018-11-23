@@ -8,7 +8,7 @@ namespace utro_wpf
     /// </summary>
     /// <typeparam name="Parent">The parrent class to be the attached property</typeparam>
     /// <typeparam name="Property">The type of this attached property</typeparam>
-    public abstract class BaseAttachedProperties<Parent, Property> where Parent : BaseAttachedProperties<Parent, Property>, new()
+    public abstract class BaseAttachedProperties<Parent, Property> where Parent : new()
     {
         #region Public Events
 
@@ -50,10 +50,10 @@ namespace utro_wpf
         private static object OnValuePropertyUpdated(DependencyObject d, object value)
         {
             // Call the parent function
-            Instance.OnValueUpdated(d, value);
+            (Instance as BaseAttachedProperties<Parent, Property>)?.OnValueUpdated(d, value);
 
             // Call event listeners
-            Instance.ValueUpdated(d, value);
+            (Instance as BaseAttachedProperties<Parent, Property>)?.ValueUpdated(d, value);
             return value;
         }
 
@@ -65,10 +65,10 @@ namespace utro_wpf
         private static void OnValuePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             // Call the parent function
-            Instance.OnValueChanged(d, e);
+            (Instance as BaseAttachedProperties<Parent, Property>)?.OnValueChanged(d, e);
 
             // Call event listeners
-            Instance.ValueChanged(d, e);
+            (Instance as BaseAttachedProperties<Parent, Property>)?.ValueChanged(d, e);
         }
 
         /// <summary>

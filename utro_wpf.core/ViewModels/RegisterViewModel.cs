@@ -10,7 +10,7 @@ namespace utro_wpf.core
     /// <summary>
     /// The view model for a longin screen
     /// </summary>
-    public class LoginViewModel : BaseViewModel
+    public class RegisterViewModel : BaseViewModel
     {
         #region Public Properties
 
@@ -20,9 +20,9 @@ namespace utro_wpf.core
         public string User { get; set; }
 
         /// <summary>
-        /// A flag to check if the loging command is running
+        /// A flag to check if the register command is running
         /// </summary>
-        public bool LoginIsRunning { get; set; }
+        public bool RegisterIsRunning { get; set; }
 
         #endregion
 
@@ -31,12 +31,12 @@ namespace utro_wpf.core
         /// <summary>
         /// The command to login
         /// </summary>
-        public ICommand LoginCommand { get; set; }
+        public ICommand RegisterCommand { get; set; }
 
         /// <summary>
         /// The command to go to the register page
         /// </summary>
-        public ICommand GoRegisterCommand { get; set; }
+        public ICommand GoLoginCommand { get; set; }
 
         #endregion
 
@@ -46,10 +46,10 @@ namespace utro_wpf.core
         /// Defualt constructor for the class
         /// </summary>
         /// <param name="window"></param>
-        public LoginViewModel()
+        public RegisterViewModel()
         {
-            LoginCommand = new RelayParameterizedCommand(async (parameter) => await Login(parameter));
-            GoRegisterCommand = new RelayCommand(async () => await GoRegister());
+            RegisterCommand = new RelayParameterizedCommand(async (parameter) => await Register(parameter));
+            GoLoginCommand = new RelayCommand(async () => await GoLogin());
         }
 
         #endregion
@@ -61,9 +61,9 @@ namespace utro_wpf.core
         /// </summary>
         /// <param name="parameter">The <see cref="SecureString"/> passed in from the view model for the user password</param>
         /// <returns></returns>
-        public async Task Login(object parameter)
+        public async Task Register(object parameter)
         {
-            await RunCommand(() => LoginIsRunning, async () => 
+            await RunCommand(() => RegisterIsRunning, async () => 
             {
                 await Task.Delay(1000); // Symulate a log in
                 string user = User;
@@ -77,11 +77,12 @@ namespace utro_wpf.core
         /// Takes the user to the register page
         /// </summary>
         /// <returns></returns>
-        public async Task GoRegister()
+        public async Task GoLogin()
         {
-            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Register);
+            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Login);
             await Task.Delay(1);
         }
+
         #endregion
     }
 }

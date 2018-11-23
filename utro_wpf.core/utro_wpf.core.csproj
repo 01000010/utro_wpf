@@ -68,6 +68,7 @@
     <Compile Include="ViewModels\Basket\Design\BasketListDesignModel.cs" />
     <Compile Include="ViewModels\Basket\Design\BasketListItemDesignModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\RegisterViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
