@@ -14,7 +14,7 @@
         Title="ДОБРО ПОЖАЛОВАТЬ!"
         Height="720" 
         MinHeight="{Binding WindowMinimumHeight}"
-        Width="1280"
+        Width="1000"
         MinWidth="{Binding WindowMinimumWidth}">
     
     <!-- The resources for the window -->

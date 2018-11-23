@@ -82,13 +82,19 @@
     <Compile Include="Controls\PageHost.xaml.cs">
       <DependentUpon>PageHost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Store\BasketListControl.xaml.cs">
+    <Compile Include="Controls\Store\Shop\ShopListControl.xaml.cs">
+      <DependentUpon>ShopListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Store\Basket\BasketListControl.xaml.cs">
       <DependentUpon>BasketListControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\SideMenuControl.xaml.cs">
       <DependentUpon>SideMenuControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Store\BasketListItemControl.xaml.cs">
+    <Compile Include="Controls\Store\Shop\ShopListItemControl.xaml.cs">
+      <DependentUpon>ShopListItemControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Store\Basket\BasketListItemControl.xaml.cs">
       <DependentUpon>BasketListItemControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\BasePage.cs" />
@@ -112,7 +118,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Store\BasketListControl.xaml">
+    <Page Include="Controls\Store\Shop\ShopListControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Store\Basket\BasketListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -120,7 +130,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Store\BasketListItemControl.xaml">
+    <Page Include="Controls\Store\Shop\ShopListItemControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Store\Basket\BasketListItemControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -11,7 +11,6 @@
       Title="Shop">
     
     <Border Background="Transparent">
-        <TextBlock Text="Wellcome to the store you fucker!" HorizontalAlignment="Center"
-                   VerticalAlignment="Center" FontSize="{StaticResource FontSizeExtraLarge}"/>
+        <local:ShopListControl/>
     </Border>
 </local:BasePage>
