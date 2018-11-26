@@ -85,7 +85,7 @@ namespace utro_wpf
             switch (PageLoadAnimation)
             {
                 case PageAnimation.SlideAndFadeFromRight:
-                    await this.SlideAndFadeInFromRight(SlideSeconds);
+                    await this.SlideAndFadeInAsync(AnimationSlideInDirection.Right, false, SlideSeconds, size: (int)Application.Current.MainWindow.Width);
                     break;
             }
         }
@@ -101,7 +101,7 @@ namespace utro_wpf
             switch (PageUnloadAnimation)
             {
                 case PageAnimation.SlideAndFadeToLeft:
-                    await this.SlideAndFadeOutToLeft(SlideSeconds);
+                    await this.SlideAndFadeOutAsync(AnimationSlideInDirection.Right, SlideSeconds);
                     break;
             }
         }

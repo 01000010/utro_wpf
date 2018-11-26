@@ -7,15 +7,21 @@
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="350">
     <Border Background="{StaticResource Main1Brush}">
-        <StackPanel>
-            
-            <TextBox Tag="CARD NUMBER" Margin="5" local:IsFocusedProperty.Value="True" Height="40"/>
-            <TextBox Tag="CARDHOLDER NAME" Margin="5" Height="40"/>
+        <StackPanel>            
+            <TextBox Text="{Binding CardNumber}" 
+                     Tag="CARD NUMBER" Margin="5" 
+                     local:IsFocusedProperty.Value="True" 
+                     Height="40"/>
+            <TextBox Text="{Binding CardName}"
+                     Tag="CARDHOLDER NAME" 
+                     Margin="5" Height="40"/>
             <StackPanel Orientation="Horizontal">
-                <TextBox Tag="VALID THRU" Margin="5" Height="40"/>
+                <TextBox Text="{Binding Validity}" Tag="VALID THRU" Margin="5" Height="40"/>
                 <PasswordBox Tag="CVV" x:Name="CVVBox" Margin="5" Height="40"/>
             </StackPanel>
-            <Button Content="Оплатить" IsDefault="True"/>
+            <Button Content="Оплатить" IsDefault="True"
+                    Command="{Binding PayupCommand}"
+                    local:IsBusyProperty.Value="{Binding IsPaymentRunning}"/>
         </StackPanel>
     </Border>
 </UserControl>

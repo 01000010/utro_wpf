@@ -32,7 +32,7 @@ namespace utro_wpf.core
         /// <summary>
         /// A flag to check if the register command is running
         /// </summary>
-        public bool RegisterIsRunning { get; set; }
+        public bool IsPaymentRunning { get; set; }
 
         #endregion
 
@@ -41,13 +41,8 @@ namespace utro_wpf.core
         /// <summary>
         /// The command to login
         /// </summary>
-        public ICommand RegisterCommand { get; set; }
-
-        /// <summary>
-        /// The command to go to the register page
-        /// </summary>
-        public ICommand GoLoginCommand { get; set; }
-
+        public ICommand PayupCommand { get; set; }
+        
         #endregion
 
         #region Constructor
@@ -58,8 +53,7 @@ namespace utro_wpf.core
         /// <param name="window"></param>
         public PaymentViewModel()
         {
-            RegisterCommand = new RelayParameterizedCommand(async (parameter) => await Register(parameter));
-            GoLoginCommand = new RelayCommand(async () => await GoLogin());
+            PayupCommand = new RelayParameterizedCommand(async (parameter) => await Register(parameter));
         }
 
         #endregion
@@ -73,24 +67,16 @@ namespace utro_wpf.core
         /// <returns></returns>
         public async Task Register(object parameter)
         {
-            await RunCommand(() => RegisterIsRunning, async () => 
+            await RunCommand(() => IsPaymentRunning, async () => 
             {
                 await Task.Delay(1000); // Symulate a log in
-                string user = User;
-                string password = (parameter as IHavePassword).SecurePassword.Unsecure(); // Do never do this for fuck sake!!!
+                string cardNumber = CardNumber;
+                string cardName = CardName;
+                string validity = Validity;
+                string cvv = (parameter as IHavePassword).SecurePassword.Unsecure(); // Do never do this for fuck sake!!! Even more so here!!!
                 // If succesuful, go to store
                 IoC.AppVM.GoToPage(ApplicationPage.Shop);
             });
-        }
-        
-        /// <summary>
-        /// Takes the user to the register page
-        /// </summary>
-        /// <returns></returns>
-        public async Task GoLogin()
-        {
-            IoC.AppVM.GoToPage(ApplicationPage.Login);
-            await Task.Delay(1);
         }
 
         #endregion

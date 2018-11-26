@@ -26,6 +26,9 @@ namespace utro_wpf
         /// </summary>
         public static ApplicationViewModel ApplicationViewModel => IoC.AppVM;
 
+        /// <summary>
+        /// The view model for the settings
+        /// </summary>
         public static SettingsViewModel SettingsViewModel => IoC.AppSettings;
     }
 }

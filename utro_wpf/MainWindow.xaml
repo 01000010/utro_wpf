@@ -125,7 +125,7 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <local:SettingsControl Grid.ColumnSpan="2" local:AnimateSlideInFromBottomProperty.Value="{Binding ApplicationViewModel.SettingsMenuVisible
+        <local:SettingsControl Grid.ColumnSpan="2" local:AnimateSlideInFromBottomMarginProperty.Value="{Binding ApplicationViewModel.SettingsMenuVisible
             , Source={x:Static local:ViewModelLocator.Instance}}" Panel.ZIndex="10"/>
         <!-- Main frame -->
         <local:PageHost x:Name="MainFrame" Grid.Column="1" d:DataContext=""
