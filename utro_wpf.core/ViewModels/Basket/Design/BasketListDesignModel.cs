@@ -64,6 +64,41 @@ namespace utro_wpf.core
                 {
                     ItemName = "Example name #7",
                     ItemDescription = "Some item's descripton #7"
+                },
+                new BasketListItemViewModel
+                {
+                    ItemName = "Example name #1",
+                    ItemDescription = "Some item's descripton #1"
+                },
+                new BasketListItemViewModel
+                {
+                    ItemName = "Example name #2",
+                    ItemDescription = "Some item's descripton #2"
+                },
+                new BasketListItemViewModel
+                {
+                    ItemName = "Example name #3",
+                    ItemDescription = "Some item's descripton #3"
+                },
+                new BasketListItemViewModel
+                {
+                    ItemName = "Example name #4",
+                    ItemDescription = "Some item's descripton #4"
+                },
+                new BasketListItemViewModel
+                {
+                    ItemName = "Example name #5",
+                    ItemDescription = "Some item's descripton #5"
+                },
+                new BasketListItemViewModel
+                {
+                    ItemName = "Example name #6",
+                    ItemDescription = "Some item's descripton #6"
+                },
+                new BasketListItemViewModel
+                {
+                    ItemName = "Example name #7",
+                    ItemDescription = "Some item's descripton #7"
                 }
             };
         }

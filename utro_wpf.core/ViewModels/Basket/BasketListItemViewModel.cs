@@ -40,6 +40,13 @@ namespace utro_wpf.core
 
         #endregion
 
+        #region Constructor
 
+        public BasketListItemViewModel()
+        {
+            // SelectCommand = new RelayParameterizedCommand(async (parameter) => await SelectCommand(parameter));
+        }
+
+        #endregion
     }
 }

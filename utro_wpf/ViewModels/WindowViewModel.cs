@@ -21,7 +21,7 @@ namespace utro_wpf
         /// <summary>
         /// The margin around the window
         /// </summary>
-        private int mOuterMarginSize = 10;
+        private int mOuterMarginSize = 1;
         
         /// <summary>
         /// The roundness of the windows edges
@@ -53,7 +53,7 @@ namespace utro_wpf
         /// The size of the border around the window
         /// </summary>
         //public int ResizeBorder { get; set; } = 6;
-        public int ResizeBorder { get { return Borderless ? 0 : 6; } }
+        public int ResizeBorder { get { return Borderless ? 0 : 2; } }
 
         /// <summary>
         /// The new padding for the window's contents
