@@ -28,11 +28,11 @@
                                        FontSize="{StaticResource FontSizeRegular}" Foreground="{StaticResource Text1Brush}"
                                        Margin="0 10 0 20" FontWeight="Light"/>
                             <!-- Username -->
-                            <TextBox Text="{Binding User}" Tag="ЛОГИН" Margin="0 0 0 15"/>
+                            <TextBox Text="{Binding User}" Tag="ЛОГИН" Margin="0 0 0 15" local:IsFocusedProperty.Value="True"/>
                             <!-- Password -->
                             <PasswordBox x:Name="PasswordText" Tag="ПАРОЛЬ" Margin="0 0 0 25"/>
                             <!-- Button -->
-                            <Button Content="Зарегистрироваться" Command="{Binding RegisterCommand}"
+                            <Button Content="Зарегистрироваться" Command="{Binding RegisterCommand}" IsDefault="True"
                                     local:IsBusyProperty.Value="{Binding RegisterIsRunning}"
                                     CommandParameter="{Binding ElementName=Page}"
                                     HorizontalAlignment="Center" FontSize="{StaticResource FontSizeLarge}"/>

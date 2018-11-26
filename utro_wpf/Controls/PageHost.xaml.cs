@@ -73,7 +73,14 @@ namespace utro_wpf
             // Animate out the previous page when the loaded even fires
             if (oldPageContent is BasePage oldPage)
             {
+                // Animate out the old page
                 oldPage.ShouldAnimateOut = true;
+
+                // Remove the contents of the oldpage as soon as it has animated out
+                Task.Delay((int)(oldPage.SlideSeconds * 1000)).ContinueWith((t) =>
+                {
+                    Application.Current.Dispatcher.Invoke(() => oldPageFrame.Content = null); 
+                });
             }
 
             // Set the new page content

@@ -76,5 +76,6 @@
     </UserControl.Resources>
     
     <ContentControl d:DataContext="{x:Static core:BasketListItemDesignModel.Instance}"
-                    Style="{StaticResource ContentStyle}"/>
+                    Style="{StaticResource ContentStyle}"
+                    />
 </UserControl>

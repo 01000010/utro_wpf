@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace utro_wpf.core
 {
@@ -11,6 +12,8 @@ namespace utro_wpf.core
     /// </summary>
     public class BasketListItemViewModel : BaseViewModel
     {
+        #region Public Properties
+
         /// <summary>
         /// The item's name
         /// </summary>
@@ -25,5 +28,18 @@ namespace utro_wpf.core
         /// Is the current item the selected one?
         /// </summary>
         public bool IsSelected { get; set; }
+
+        #endregion
+
+        #region Commands
+
+        /// <summary>
+        /// The command to login
+        /// </summary>
+        public ICommand SelectCommand { get; set; }
+
+        #endregion
+
+
     }
 }
