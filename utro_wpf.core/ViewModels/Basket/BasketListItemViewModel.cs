@@ -45,6 +45,16 @@ namespace utro_wpf.core
         public BasketListItemViewModel()
         {
             // SelectCommand = new RelayParameterizedCommand(async (parameter) => await SelectCommand(parameter));
+            SelectCommand = new RelayCommand(() => Select());
+        }
+
+        #endregion
+
+        #region Commands
+
+        public void Select()
+        {
+            IsSelected ^= true;
         }
 
         #endregion

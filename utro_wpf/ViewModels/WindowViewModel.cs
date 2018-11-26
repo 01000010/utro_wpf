@@ -120,7 +120,7 @@ namespace utro_wpf
         /// The height of the title bar (the top bar of the window)
         /// </summary>
         public GridLength TitleHeightGridLength { get { return new GridLength(TitleHeight + ResizeBorder); } }
-
+        
         #endregion
 
         #region Commands

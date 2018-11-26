@@ -17,6 +17,10 @@ namespace utro_wpf.core
 
         public static IKernel Kernel { get; private set; } = new StandardKernel();
 
+        public static ApplicationViewModel AppVM => Get<ApplicationViewModel>();
+
+        public static SettingsViewModel AppSettings => Get<SettingsViewModel>();
+
         #endregion
 
         #region Construction
@@ -38,6 +42,8 @@ namespace utro_wpf.core
         {
             // Bind to an instance of ApplicationViewModel
             Kernel.Bind<ApplicationViewModel>().ToConstant(new ApplicationViewModel());
+            // Bind to an instance of the Settings
+            Kernel.Bind<SettingsViewModel>().ToConstant(new SettingsViewModel());
         }
 
         #endregion

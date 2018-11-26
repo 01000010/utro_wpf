@@ -69,7 +69,7 @@ namespace utro_wpf.core
                 string user = User;
                 string password = (parameter as IHavePassword).SecurePassword.Unsecure(); // Do never do this for fuck sake!!!
                 // If succesuful, go to store
-                IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Shop);
+                IoC.AppVM.GoToPage(ApplicationPage.Shop);
             });
         }
         
@@ -79,7 +79,7 @@ namespace utro_wpf.core
         /// <returns></returns>
         public async Task GoRegister()
         {
-            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Register);
+            IoC.AppVM.GoToPage(ApplicationPage.Register);
             await Task.Delay(1);
         }
         #endregion

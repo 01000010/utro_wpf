@@ -17,7 +17,7 @@ namespace utro_wpf
             switch ((string)value)
             {
                 case nameof(ApplicationViewModel):
-                    return IoC.Get<ApplicationViewModel>();
+                    return IoC.AppVM;
 
                 default:
                     Debugger.Break();

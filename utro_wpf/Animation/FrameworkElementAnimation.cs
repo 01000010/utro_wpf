@@ -76,5 +76,47 @@ namespace utro_wpf
             element.Visibility = Visibility.Visible;
             await Task.Delay((int)seconds * 1000);
         }
+
+        #region Slide In From Bottom
+
+        /// <summary>
+        /// Slides an element in from the bottom
+        /// </summary>
+        /// <param name="element">The element to animate</param>
+        /// <param name="seconds">The time the animation will take</param>
+        /// <param name="keepMargin">Whether to keep the element at the same height during animation</param>
+        /// <param name="height">The animation height to animate to. If not specified the elements height is used</param>
+        /// <returns></returns>
+        public static async Task SlideAndFadeInFromBottomAsync(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true, int height = 0)
+        {
+            Storyboard sb = new Storyboard();
+            sb.AddSlideFromBottom(seconds, height == 0 ? element.ActualHeight : height, keepMargin: keepMargin);
+            sb.AddFadeIn(seconds);
+            sb.Begin(element);
+            element.Visibility = Visibility.Visible;
+            await Task.Delay((int)(seconds * 1000));
+        }
+
+        /// <summary>
+        /// Slides an element out to the bottom
+        /// </summary>
+        /// <param name="element">The element to animate</param>
+        /// <param name="seconds">The time the animation will take</param>
+        /// <param name="keepMargin">Whether to keep the element at the same height during animation</param>
+        /// <param name="height">The animation height to animate to. If not specified the elements height is used</param>
+        /// <returns></returns>
+        public static async Task SlideAndFadeOutToBottomAsync(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true, int height = 0)
+        {
+            Storyboard sb = new Storyboard();
+            sb.AddSlideToBottom(seconds, height == 0 ? element.ActualHeight : height, keepMargin: keepMargin);
+            sb.AddFadeOut(seconds);
+            sb.Begin(element);
+            element.Visibility = Visibility.Visible;
+            await Task.Delay((int)(seconds * 1000));
+            element.Visibility = Visibility.Hidden;
+        }
+
+        #endregion
+
     }
 }

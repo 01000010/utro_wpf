@@ -22,6 +22,11 @@ namespace utro_wpf.core
         public bool SideMenuVisible { get; private set; } = false;
 
         /// <summary>
+        /// Wheter the settings menu should be visible
+        /// </summary>
+        public bool SettingsMenuVisible { get; set; } = false;
+
+        /// <summary>
         /// Navigates to the specified page
         /// </summary>
         /// <param name="page">The page to go to</param>

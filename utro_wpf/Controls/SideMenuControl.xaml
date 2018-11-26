@@ -26,7 +26,9 @@
                             <Button Content="{StaticResource Basket}" Style="{StaticResource PanelButton}"/>
                             <Button Content="{StaticResource Card}" Style="{StaticResource PanelButton}"/>
                         </StackPanel>
-                        <Button Grid.Column="2" Content="&#xF013;" Style="{StaticResource PanelButton}"/>
+                        <Button Grid.Column="2" Content="{StaticResource Cog}" Style="{StaticResource PanelButton}"
+                                Command="{Binding SettingsViewModel.OpenSettingsCommand,
+                                          Source={x:Static local:ViewModelLocator.Instance}}"/>
                     </Grid>
                     <ContentPresenter Grid.Row="1"/>
                 </Grid>

@@ -42,4 +42,6 @@
     <system:String x:Key="Shirt">&#xF553;</system:String>
     <system:String x:Key="Sofa">&#xF4B8;</system:String>
     <system:String x:Key="Card">&#xF09D;</system:String>
+    <system:String x:Key="BackArrow">&#xF060;</system:String>
+    <system:String x:Key="Cog">&#xF013;</system:String>    
 </ResourceDictionary>
