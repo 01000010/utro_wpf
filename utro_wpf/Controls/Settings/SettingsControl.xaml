@@ -31,7 +31,8 @@
                 </TextBlock>
             </Grid>
             <StackPanel Grid.Row="1" Margin="0 20 0 0">
-                <Button Content="Выход" Style="{StaticResource ExitButton}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Button Content="Выход" Style="{StaticResource ExitButton}" VerticalAlignment="Center" HorizontalAlignment="Center"
+                        Command="{Binding ExitAccountCommand}"/>
                 <Button Content="Менеджер" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <Button Content="Администратор" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </StackPanel>

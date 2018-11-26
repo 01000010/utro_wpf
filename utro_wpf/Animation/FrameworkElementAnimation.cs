@@ -19,6 +19,7 @@ namespace utro_wpf
         /// <returns></returns>
         public static async Task SlideAndFadeInFromRight(this FrameworkElement element, float seconds = 0.3f, bool keepMargins = true)
         {
+            if (seconds == 0) element.Visibility = Visibility.Hidden;
             // Create the story board
             Storyboard sb = new Storyboard();
             sb.AddSlideFromRight(seconds, element.ActualWidth, keepMargin: keepMargins);
@@ -36,6 +37,7 @@ namespace utro_wpf
         /// <returns></returns>
         public static async Task SlideAndFadeInFromLeft(this FrameworkElement element, float seconds = 0.3f, bool keepMargins = true)
         {
+            if (seconds == 0) element.Visibility = Visibility.Hidden;
             // Create the story board
             Storyboard sb = new Storyboard();
             sb.AddSlideFromLeft(seconds, element.ActualWidth, keepMargin: keepMargins);
@@ -53,6 +55,7 @@ namespace utro_wpf
         /// <returns></returns>
         public static async Task SlideAndFadeOutToLeft(this FrameworkElement element, float seconds = 0.3f, bool keepMargins = true)
         {
+            if (seconds == 0) element.Visibility = Visibility.Hidden;
             Storyboard sb = new Storyboard();
             sb.AddSlideToLeft(seconds, element.ActualWidth, keepMargin: keepMargins);
             sb.AddFadeOut(seconds);
@@ -69,6 +72,7 @@ namespace utro_wpf
         /// <returns></returns>
         public static async Task SlideAndFadeOutToRight(this FrameworkElement element, float seconds = 0.3f, bool keepMargins = true)
         {
+            if (seconds == 0) element.Visibility = Visibility.Hidden;
             Storyboard sb = new Storyboard();
             sb.AddSlideToRight(seconds, element.ActualWidth, keepMargin: keepMargins);
             sb.AddFadeOut(seconds);
@@ -89,6 +93,7 @@ namespace utro_wpf
         /// <returns></returns>
         public static async Task SlideAndFadeInFromBottomAsync(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true, int height = 0)
         {
+            if (seconds == 0) element.Visibility = Visibility.Hidden;
             Storyboard sb = new Storyboard();
             sb.AddSlideFromBottom(seconds, height == 0 ? element.ActualHeight : height, keepMargin: keepMargin);
             sb.AddFadeIn(seconds);
@@ -107,6 +112,7 @@ namespace utro_wpf
         /// <returns></returns>
         public static async Task SlideAndFadeOutToBottomAsync(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true, int height = 0)
         {
+            if (seconds == 0) element.Visibility = Visibility.Hidden;
             Storyboard sb = new Storyboard();
             sb.AddSlideToBottom(seconds, height == 0 ? element.ActualHeight : height, keepMargin: keepMargin);
             sb.AddFadeOut(seconds);

@@ -23,6 +23,14 @@
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
+                                <!-- New Message Indicator Bar -->
+                                <Border Background="{StaticResource Main2Brush}" 
+                                    Width="4"
+                                    HorizontalAlignment="Left"
+                                    Visibility="{Binding IsSelected, 
+                                                 Converter={local:BooleanToVisibilityConverter}, ConverterParameter=True}"
+                                    />
+
                                 <!-- Item picture -->
                                 <Border Grid.Column="0" Padding="8">
                                     <Border Background="{StaticResource Main2Brush}"

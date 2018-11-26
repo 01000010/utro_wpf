@@ -20,7 +20,15 @@ namespace utro_wpf.core
         /// </summary>
         public ICommand CloseSettingsCommand { get; set; }
 
+        /// <summary>
+        /// The command to open the settings
+        /// </summary>
         public ICommand OpenSettingsCommand { get; set; }
+
+        /// <summary>
+        /// The command to exit from the account
+        /// </summary>
+        public ICommand ExitAccountCommand { get; set; }
 
         #endregion
 
@@ -34,11 +42,12 @@ namespace utro_wpf.core
         {
             CloseSettingsCommand = new RelayCommand(CloseSettings);
             OpenSettingsCommand = new RelayCommand(OpenSettings);
+            ExitAccountCommand = new RelayCommand(ExitAccount);
         }
 
         #endregion
 
-        #region Commands
+        #region Commands methods
         
         /// <summary>
         /// Takes the user to the register page
@@ -49,9 +58,19 @@ namespace utro_wpf.core
             IoC.AppVM.SettingsMenuVisible = false;
         }
 
+        /// <summary>
+        /// Command to open the settings window
+        /// </summary>
         public void OpenSettings()
         {
             IoC.AppVM.SettingsMenuVisible = true;
+        }
+
+        public void ExitAccount()
+        {
+            IoC.AppVM.GoToPage(ApplicationPage.Login);
+            IoC.AppVM.SettingsMenuVisible = false;
+            // Add here the logic to close the session.
         }
 
         #endregion

@@ -173,7 +173,7 @@
                             <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" TargetName="border" Value="{StaticResource Extra1Brush}"/>
+                            <Setter Property="Background" TargetName="border" Value="Transparent"/>
                             <Setter Property="Foreground" Value="{StaticResource Main2Brush}"/>
                         </Trigger>
                         <Trigger Property="ToggleButton.IsChecked" Value="True">
