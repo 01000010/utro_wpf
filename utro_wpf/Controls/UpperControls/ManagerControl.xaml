@@ -70,7 +70,11 @@
 
                 <!-- Profile details -->
                 <StackPanel Grid.Column="1">
-                    
+                    <local:TextEntryControl/>
+                    <local:TextEntryControl/>
+                    <local:TextEntryControl/>
+                    <local:TextEntryControl/>
+                    <local:TextEntryControl/>
                 </StackPanel>
 
 

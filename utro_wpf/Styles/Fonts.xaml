@@ -48,4 +48,5 @@
     <system:String x:Key="Sales">&#xF571;</system:String>
     <system:String x:Key="Accept">&#xF058;</system:String>
     <system:String x:Key="Decline">&#xF057;</system:String>
+    <system:String x:Key="Ellipses">&#xF141;</system:String>
 </ResourceDictionary>

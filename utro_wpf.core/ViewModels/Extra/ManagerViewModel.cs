@@ -12,6 +12,20 @@ namespace utro_wpf.core
     /// </summary>
     public class ManagerViewModel : BaseViewModel
     {
+        #region Public Properties
+
+        /// <summary>
+        /// The code of the new item
+        /// </summary>
+        public TextEntryViewModel Code { get; set; }
+
+        /// <summary>
+        /// Name of the new item
+        /// </summary>
+        public TextEntryViewModel Name { get; set; }
+
+        #endregion
+
 
         #region Commands
 

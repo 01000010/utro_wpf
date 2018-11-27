@@ -64,6 +64,8 @@
     <Compile Include="ViewModels\Base\RelayCommand.cs" />
     <Compile Include="ViewModels\Base\RelayParameterizedCommand.cs" />
     <Compile Include="ViewModels\Extra\AdministratorViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\Design\TextEntryViewModel.cs" />
+    <Compile Include="ViewModels\Inputs\TextEntryViewModel.cs" />
     <Compile Include="ViewModels\Payment\PaymentViewModel.cs" />
     <Compile Include="ViewModels\Extra\ManagerViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
