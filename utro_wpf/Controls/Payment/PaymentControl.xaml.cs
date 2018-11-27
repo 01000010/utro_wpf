@@ -13,19 +13,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using utro_wpf.core;
 
 namespace utro_wpf
 {
     /// <summary>
     /// Interaction logic for PaymentControl.xaml
     /// </summary>
-    public partial class PaymentControl : UserControl
+    public partial class PaymentControl : UserControl, IHavePassword
     {
         public PaymentControl()
         {
             InitializeComponent();
+
+            DataContext = IoC.AppPay;
         }
 
-        public SecureString CVV => CVVBox.SecurePassword;
+        public SecureString SecurePassword => CVVBox.SecurePassword;
     }
 }

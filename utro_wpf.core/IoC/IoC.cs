@@ -40,6 +40,11 @@ namespace utro_wpf.core
         /// </summary>
         public static AdministratorViewModel AppAdmin => Get<AdministratorViewModel>();
 
+        /// <summary>
+        /// The view model for payments
+        /// </summary>
+        public static PaymentViewModel AppPay => Get<PaymentViewModel>();
+
         #endregion
 
         #region Construction
@@ -67,6 +72,8 @@ namespace utro_wpf.core
             Kernel.Bind<ManagerViewModel>().ToConstant(new ManagerViewModel());
             // Bind to an instance of the administrator
             Kernel.Bind<AdministratorViewModel>().ToConstant(new AdministratorViewModel());
+            // Bind to an instance of the payment model
+            Kernel.Bind<PaymentViewModel>().ToConstant(new PaymentViewModel());
         }
 
         #endregion

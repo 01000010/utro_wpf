@@ -34,6 +34,11 @@ namespace utro_wpf.core
         /// </summary>
         public bool IsPaymentRunning { get; set; }
 
+        /// <summary>
+        /// A flag to check if the cleanning is running
+        /// </summary>
+        public bool IsCleaningRunning { get; set; }
+
         #endregion
 
         #region Commands
@@ -42,7 +47,13 @@ namespace utro_wpf.core
         /// The command to login
         /// </summary>
         public ICommand PayupCommand { get; set; }
-        
+
+
+        /// <summary>
+        /// The command to login
+        /// </summary>
+        public ICommand ClearUpCommand { get; set; }
+
         #endregion
 
         #region Constructor
@@ -53,7 +64,8 @@ namespace utro_wpf.core
         /// <param name="window"></param>
         public PaymentViewModel()
         {
-            PayupCommand = new RelayParameterizedCommand(async (parameter) => await Register(parameter));
+            PayupCommand = new RelayParameterizedCommand(async (parameter) => await Payup(parameter));
+            ClearUpCommand = new RelayParameterizedCommand(async (parameter) => await Cleanup(parameter));
         }
 
         #endregion
@@ -65,15 +77,28 @@ namespace utro_wpf.core
         /// </summary>
         /// <param name="parameter">The <see cref="SecureString"/> passed in from the view model for the user password</param>
         /// <returns></returns>
-        public async Task Register(object parameter)
+        public async Task Payup(object parameter)
         {
             await RunCommand(() => IsPaymentRunning, async () => 
             {
-                await Task.Delay(1000); // Symulate a log in
+                await Task.Delay(3000); // Symulate a payment
                 string cardNumber = CardNumber;
                 string cardName = CardName;
                 string validity = Validity;
                 string cvv = (parameter as IHavePassword).SecurePassword.Unsecure(); // Do never do this for fuck sake!!! Even more so here!!!
+                // If succesuful, go to store
+                IoC.AppVM.GoToPage(ApplicationPage.Shop);
+            });
+        }
+
+        public async Task Cleanup(object parameter)
+        {
+            await RunCommand(() => IsCleaningRunning, async () => 
+            {
+                CardName = "";
+                Validity = "";
+                CardNumber = "";
+                await Task.Delay(1000); // Symulate a cancel
                 // If succesuful, go to store
                 IoC.AppVM.GoToPage(ApplicationPage.Shop);
             });

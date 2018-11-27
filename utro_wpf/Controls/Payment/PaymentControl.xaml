@@ -4,24 +4,46 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:utro_wpf"
+             xmlns:core="clr-namespace:utro_wpf.core;assembly=utro_wpf.core"
              mc:Ignorable="d" 
+             x:Name="UCCard"
              d:DesignHeight="350" d:DesignWidth="350">
-    <Border Background="{StaticResource Main1Brush}">
+
+    <Border Background="{StaticResource Extra1Brush}">
         <StackPanel>            
             <TextBox Text="{Binding CardNumber}" 
                      Tag="CARD NUMBER" Margin="5" 
                      local:IsFocusedProperty.Value="True" 
-                     Height="40"/>
+                     Height="40"
+                     Foreground="{StaticResource Text2Brush}"
+                     BorderBrush="{StaticResource Text2Brush}"/>
             <TextBox Text="{Binding CardName}"
                      Tag="CARDHOLDER NAME" 
-                     Margin="5" Height="40"/>
-            <StackPanel Orientation="Horizontal">
-                <TextBox Text="{Binding Validity}" Tag="VALID THRU" Margin="5" Height="40"/>
-                <PasswordBox Tag="CVV" x:Name="CVVBox" Margin="5" Height="40"/>
+                     Margin="5" Height="40"
+                     Foreground="{StaticResource Text2Brush}"
+                     BorderBrush="{StaticResource Text2Brush}"/>
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 25">
+                <TextBox Text="{Binding Validity}" Tag="VALID THRU" Margin="5" Height="40"
+                         Foreground="{StaticResource Text2Brush}"
+                         BorderBrush="{StaticResource Text2Brush}"/>
+                <PasswordBox Tag="CVV" x:Name="CVVBox" Margin="5" Height="40"
+                             Foreground="{StaticResource Text2Brush}"
+                             BorderBrush="{StaticResource Text2Brush}"/>
             </StackPanel>
-            <Button Content="Оплатить" IsDefault="True"
-                    Command="{Binding PayupCommand}"
-                    local:IsBusyProperty.Value="{Binding IsPaymentRunning}"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="{StaticResource Accept}" IsDefault="True" Style="{StaticResource AcceptButton}"
+                        Command="{Binding PayupCommand}" FontFamily="{StaticResource FontAwesome}"
+                        local:IsBusyProperty.Value="{Binding IsPaymentRunning}"
+                        CommandParameter="{Binding ElementName=UCCard}"
+                        FontSize="{StaticResource FontSizeExtraLarge}"
+                        Margin="10"/>
+                <Button Style="{StaticResource CancelButton}"
+                        Content="{StaticResource Decline}" FontFamily="{StaticResource FontAwesome}"
+                        FontSize="{StaticResource FontSizeExtraLarge}" Command="{Binding ClearUpCommand}"
+                        local:IsBusyProperty.Value="{Binding IsCleaningRunning}"
+                        CommandParameter="{Binding ElementName=UCCard}"
+                        Margin="10"/>
+            </StackPanel>
         </StackPanel>
     </Border>
 </UserControl>

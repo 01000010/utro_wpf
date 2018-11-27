@@ -40,5 +40,10 @@ namespace utro_wpf
         /// The administrator control for the application
         /// </summary>
         public static AdministratorViewModel AdministratorViewModel => IoC.AppAdmin;
+
+        /// <summary>
+        /// The payment control for the application
+        /// </summary>
+        public static PaymentViewModel PaymentViewModel => IoC.AppPay;
     }
 }
