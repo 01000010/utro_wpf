@@ -262,7 +262,7 @@
         <Setter Property="FontFamily" Value="{StaticResource EvolveSansEVO}"/>
         <Setter Property="FontWeight" Value="Heavy"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Padding" Value="10 10"/>
         <Setter Property="local:IsBusyProperty.Value" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
