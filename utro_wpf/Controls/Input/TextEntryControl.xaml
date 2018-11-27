@@ -6,13 +6,17 @@
              xmlns:local="clr-namespace:utro_wpf"
              xmlns:core="clr-namespace:utro_wpf.core;assembly=utro_wpf.core"
              mc:Ignorable="d" 
-             DataContext="{x:Static core:TextEntryDesignModel.Instance}">
+             d:DataContext="{x:Static core:TextEntryDesignModel.Instance}">
     <!-- Grey underline -->
-    <Border BorderBrush="{StaticResource Text1Brush}"
-            BorderThickness="0 0 0 0.5">
+    <Border BorderBrush="{StaticResource Extra2Brush}"
+            BorderThickness="0 0 0 2">
 
         <Grid Background="{StaticResource Main1Brush}">
 
+            <Grid.InputBindings>
+                <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding EditCommand}"/>
+            </Grid.InputBindings>
+            
             <!-- Hover over to show edit button -->
             <Grid.Triggers>
                 <EventTrigger RoutedEvent="MouseEnter">
@@ -39,19 +43,22 @@
 
             <!-- Label -> Name* -> Buttons -->
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Name="LabelColumnDefinition" Width="Auto" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
             <!-- Label -->
             <TextBlock Text="{Binding Label}"
+                       Name="Label"
                        Margin="15 12"
+                       HorizontalAlignment="Left"
                        VerticalAlignment="Center"
+                       FontSize="{StaticResource FontSizeRegular}"
                        />
 
             <!-- Edit Content -->
-            <TextBox Text="{Binding EditedText}"
+            <TextBox Text="{Binding EditedText, UpdateSourceTrigger=PropertyChanged}"
                      Grid.Column="1"
                      local:AnimateFadeInProperty.Value="{Binding Editing}"
                      local:FocusAndSelectProperty.Value="{Binding Editing}"
@@ -66,6 +73,7 @@
                        local:AnimateFadeInProperty.Value="{Binding Editing, Converter={local:BooleanInvertConverter}}"
                        Margin="15 8"
                        VerticalAlignment="Center"
+                       FontSize="{StaticResource FontSizeRegular}"
                        />
 
             <!-- Edit button container -->
@@ -82,7 +90,7 @@
                         Cursor="Hand"
                         Command="{Binding EditCommand}"
                         Background="{StaticResource Main1Brush}"
-                        FontSize="{StaticResource FontSizeSmall}"
+                        FontSize="{StaticResource FontSizeRegular}"
                         VerticalAlignment="Center"
                         />
             </Grid>
@@ -99,10 +107,10 @@
                         Cursor="Hand"
                         Command="{Binding SaveCommand}"
                         Background="{StaticResource Main1Brush}"
-                        Padding="8 5"
-                        Margin="0 0 5 0"
+                        Padding="5"
+                        Margin="0 0 2 0"
                         VerticalAlignment="Center"
-                        FontSize="{StaticResource FontSizeSmall}"
+                        FontSize="{StaticResource FontSizeRegular}"
                         />
 
                 <!-- Cancel Button -->
@@ -113,10 +121,10 @@
                         Cursor="Hand"
                         Command="{Binding CancelCommand}"
                         Background="{StaticResource Main1Brush}"
-                        Padding="8 5"
+                        Padding="5"
                         Margin="0"
                         VerticalAlignment="Center"
-                        FontSize="{StaticResource FontSizeSmall}"
+                        FontSize="{StaticResource FontSizeRegular}"
                         />
 
             </StackPanel>

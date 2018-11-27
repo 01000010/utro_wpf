@@ -4,12 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:utro_wpf"
+             xmlns:core="clr-namespace:utro_wpf.core;assembly=utro_wpf.core"
+             DataContext="{x:Static core:ManagerDesignModel.Instance}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    
     <Border Background="{StaticResource Main1Brush}" 
             Padding="15">
         <Grid>
 
+            <!-- Double click to edit -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
@@ -37,7 +41,7 @@
 
             <!-- Main Content -->
             <Grid Grid.Row="1"
-                  Width="600"
+                  Width="800"
                   VerticalAlignment="Top"
                   >
 
@@ -69,12 +73,12 @@
                 </Grid>
 
                 <!-- Profile details -->
-                <StackPanel Grid.Column="1">
-                    <local:TextEntryControl/>
-                    <local:TextEntryControl/>
-                    <local:TextEntryControl/>
-                    <local:TextEntryControl/>
-                    <local:TextEntryControl/>
+                <StackPanel Grid.Column="1" local:TextEntryWidthMatcherProperty.Value="True">
+                    <local:TextEntryControl DataContext="{Binding Code}"/>
+                    <local:TextEntryControl DataContext="{Binding Name}"/>
+                    <local:TextEntryControl DataContext="{Binding Width}"/>
+                    <local:TextEntryControl DataContext="{Binding Height}"/>
+                    <local:TextEntryControl DataContext="{Binding Commentary}"/>
                 </StackPanel>
 
 
