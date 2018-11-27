@@ -120,7 +120,12 @@ namespace utro_wpf
         /// The height of the title bar (the top bar of the window)
         /// </summary>
         public GridLength TitleHeightGridLength { get { return new GridLength(TitleHeight + ResizeBorder); } }
-        
+
+        /// <summary>
+        /// The message atop of the windwow
+        /// </summary>
+        public static string TitleMessage { get; set; } = "У  Т  Р  О";
+
         #endregion
 
         #region Commands

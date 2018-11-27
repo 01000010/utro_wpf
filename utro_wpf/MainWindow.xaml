@@ -11,7 +11,7 @@
         AllowsTransparency="True"
         x:Name="UtroDesktopApp"
         WindowStartupLocation="CenterScreen"
-        Title="ДОБРО ПОЖАЛОВАТЬ!"
+        Title="{Binding TitleMessage}"
         Height="720" 
         MinHeight="{Binding WindowMinimumHeight}"
         Width="1000"

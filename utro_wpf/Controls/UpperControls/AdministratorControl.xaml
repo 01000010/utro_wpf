@@ -30,7 +30,7 @@
                 <Run FontFamily="{StaticResource FontAwesome}"
                      Text="{StaticResource Sales}"
                      Foreground="{StaticResource Extra2Brush}"/>
-                <Run Text="Контрол заказы"/>
+                <Run Text="Контроль заказы"/>
                 </TextBlock>
             </Grid>
             <!-- Main Content -->
