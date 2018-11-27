@@ -30,6 +30,11 @@ namespace utro_wpf.core
         /// </summary>
         public ICommand ExitAccountCommand { get; set; }
 
+        /// <summary>
+        /// The command to redirect to the manager page
+        /// </summary>
+        public ICommand GoToManagerCommand { get; set; }
+
         #endregion
 
         #region Constructor
@@ -43,6 +48,7 @@ namespace utro_wpf.core
             CloseSettingsCommand = new RelayCommand(CloseSettings);
             OpenSettingsCommand = new RelayCommand(OpenSettings);
             ExitAccountCommand = new RelayCommand(ExitAccount);
+            GoToManagerCommand = new RelayCommand(GoManager);
         }
 
         #endregion
@@ -71,6 +77,11 @@ namespace utro_wpf.core
             IoC.AppVM.GoToPage(ApplicationPage.Login);
             IoC.AppVM.SettingsMenuVisible = false;
             // Add here the logic to close the session.
+        }
+
+        public void GoManager()
+        {
+            IoC.AppVM.ManagerAddVisible = true;
         }
 
         #endregion

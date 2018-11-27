@@ -76,6 +76,7 @@
     <Compile Include="Animation\PageAnimations.cs" />
     <Compile Include="Animation\StoryboardHelpers.cs" />
     <Compile Include="AttachedProperties\BaseAttachedProperties.cs" />
+    <Compile Include="AttachedProperties\PanelChildMarginProperties.cs" />
     <Compile Include="AttachedProperties\TextAttachedProperties.cs" />
     <Compile Include="AttachedProperties\ButtonAttachedProperties.cs" />
     <Compile Include="AttachedProperties\FrameAttachedProperties.cs" />
@@ -104,6 +105,12 @@
     </Compile>
     <Compile Include="Controls\Store\Basket\BasketListItemControl.xaml.cs">
       <DependentUpon>BasketListItemControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UpperControls\ManagerControl.xaml.cs">
+      <DependentUpon>ManagerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UpperControls\AdministratorControl.xaml.cs">
+      <DependentUpon>AdministratorControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\RegisterPage.xaml.cs">
@@ -153,6 +160,14 @@
     <Page Include="Controls\Store\Basket\BasketListItemControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\UpperControls\ManagerControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\UpperControls\AdministratorControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\RegisterPage.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -295,6 +310,7 @@
     <Content Include="DB_Data\fed_db_create_database.sql" />
     <Content Include="DB_Data\fed_db_load_data.sql" />
     <Content Include="DB_Data\office_macros.vb" />
+    <Resource Include="Images\Sample\ex.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\utro_wpf.core\utro_wpf.core.csproj">

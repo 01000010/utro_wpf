@@ -30,5 +30,10 @@ namespace utro_wpf
         /// The view model for the settings
         /// </summary>
         public static SettingsViewModel SettingsViewModel => IoC.AppSettings;
+
+        /// <summary>
+        /// The manager for the application
+        /// </summary>
+        public static ManagerViewModel ManagerViewModel => IoC.AppManager;
     }
 }

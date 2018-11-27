@@ -127,6 +127,8 @@
         </Grid.ColumnDefinitions>
         <local:SettingsControl Grid.ColumnSpan="2" local:AnimateSlideInFromBottomMarginProperty.Value="{Binding ApplicationViewModel.SettingsMenuVisible
             , Source={x:Static local:ViewModelLocator.Instance}}" Panel.ZIndex="10"/>
+        <local:ManagerControl Grid.ColumnSpan="2" local:AnimateSlideInFromBottomMarginProperty.Value="{Binding ApplicationViewModel.ManagerAddVisible
+            , Source={x:Static local:ViewModelLocator.Instance}}" Panel.ZIndex="11"/>
         <!-- Main frame -->
         <local:PageHost x:Name="MainFrame" Grid.Column="1" d:DataContext=""
                DataContext="{Binding ApplicationViewModel.CurrentPage, Source={x:Static local:ViewModelLocator.Instance}, 

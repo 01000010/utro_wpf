@@ -21,6 +21,8 @@ namespace utro_wpf.core
 
         public static SettingsViewModel AppSettings => Get<SettingsViewModel>();
 
+        public static ManagerViewModel AppManager => Get<ManagerViewModel>();
+
         #endregion
 
         #region Construction
@@ -44,6 +46,8 @@ namespace utro_wpf.core
             Kernel.Bind<ApplicationViewModel>().ToConstant(new ApplicationViewModel());
             // Bind to an instance of the Settings
             Kernel.Bind<SettingsViewModel>().ToConstant(new SettingsViewModel());
+            // Bind to an instance of the manager
+            Kernel.Bind<ManagerViewModel>().ToConstant(new ManagerViewModel());
         }
 
         #endregion

@@ -27,6 +27,11 @@ namespace utro_wpf.core
         public bool SettingsMenuVisible { get; set; } = false;
 
         /// <summary>
+        /// Wether we should pop up the manager add page
+        /// </summary>
+        public bool ManagerAddVisible { get; set; } = false;
+
+        /// <summary>
         /// Navigates to the specified page
         /// </summary>
         /// <param name="page">The page to go to</param>
