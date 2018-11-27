@@ -35,5 +35,10 @@ namespace utro_wpf
         /// The manager for the application
         /// </summary>
         public static ManagerViewModel ManagerViewModel => IoC.AppManager;
+
+        /// <summary>
+        /// The administrator control for the application
+        /// </summary>
+        public static AdministratorViewModel AdministratorViewModel => IoC.AppAdmin;
     }
 }

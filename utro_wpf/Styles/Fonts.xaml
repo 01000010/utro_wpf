@@ -45,4 +45,5 @@
     <system:String x:Key="BackArrow">&#xF060;</system:String>
     <system:String x:Key="Cog">&#xF013;</system:String>
     <system:String x:Key="Add">&#xF067;</system:String>
+    <system:String x:Key="Sales">&#xF571;</system:String>
 </ResourceDictionary>

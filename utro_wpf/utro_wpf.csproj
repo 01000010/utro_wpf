@@ -106,11 +106,11 @@
     <Compile Include="Controls\Store\Basket\BasketListItemControl.xaml.cs">
       <DependentUpon>BasketListItemControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\UpperControls\ManagerControl.xaml.cs">
-      <DependentUpon>ManagerControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\UpperControls\AdministratorControl.xaml.cs">
       <DependentUpon>AdministratorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UpperControls\ManagerControl.xaml.cs">
+      <DependentUpon>ManagerControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\RegisterPage.xaml.cs">
@@ -161,11 +161,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\UpperControls\ManagerControl.xaml">
+    <Page Include="Controls\UpperControls\AdministratorControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\UpperControls\AdministratorControl.xaml">
+    <Page Include="Controls\UpperControls\ManagerControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

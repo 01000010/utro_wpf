@@ -32,6 +32,11 @@ namespace utro_wpf.core
         public bool ManagerAddVisible { get; set; } = false;
 
         /// <summary>
+        /// Wether we should pop up the administrator control
+        /// </summary>
+        public bool AdministratorControlVisible { get; set; } = false;
+
+        /// <summary>
         /// Navigates to the specified page
         /// </summary>
         /// <param name="page">The page to go to</param>

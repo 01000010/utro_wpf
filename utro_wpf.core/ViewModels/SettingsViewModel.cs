@@ -35,6 +35,11 @@ namespace utro_wpf.core
         /// </summary>
         public ICommand GoToManagerCommand { get; set; }
 
+        /// <summary>
+        /// The command to redirect to the admin page
+        /// </summary>
+        public ICommand GoToAdminCommand { get; set; }
+
         #endregion
 
         #region Constructor
@@ -49,6 +54,7 @@ namespace utro_wpf.core
             OpenSettingsCommand = new RelayCommand(OpenSettings);
             ExitAccountCommand = new RelayCommand(ExitAccount);
             GoToManagerCommand = new RelayCommand(GoManager);
+            GoToAdminCommand = new RelayCommand(GoAdmin);
         }
 
         #endregion
@@ -82,6 +88,11 @@ namespace utro_wpf.core
         public void GoManager()
         {
             IoC.AppVM.ManagerAddVisible = true;
+        }
+
+        public void GoAdmin()
+        {
+            IoC.AppVM.AdministratorControlVisible = true;
         }
 
         #endregion

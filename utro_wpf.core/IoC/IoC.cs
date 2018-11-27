@@ -15,13 +15,30 @@ namespace utro_wpf.core
     {
         #region Public Properties
 
+        /// <summary>
+        /// The kernel to add the bindings to
+        /// </summary>
         public static IKernel Kernel { get; private set; } = new StandardKernel();
 
+        /// <summary>
+        /// The view model for the application
+        /// </summary>
         public static ApplicationViewModel AppVM => Get<ApplicationViewModel>();
 
+        /// <summary>
+        /// The view model for the settings menu
+        /// </summary>
         public static SettingsViewModel AppSettings => Get<SettingsViewModel>();
 
+        /// <summary>
+        /// The view model for the application manger
+        /// </summary>
         public static ManagerViewModel AppManager => Get<ManagerViewModel>();
+
+        /// <summary>
+        /// The view model for the administrator
+        /// </summary>
+        public static AdministratorViewModel AppAdmin => Get<AdministratorViewModel>();
 
         #endregion
 
@@ -48,6 +65,8 @@ namespace utro_wpf.core
             Kernel.Bind<SettingsViewModel>().ToConstant(new SettingsViewModel());
             // Bind to an instance of the manager
             Kernel.Bind<ManagerViewModel>().ToConstant(new ManagerViewModel());
+            // Bind to an instance of the administrator
+            Kernel.Bind<AdministratorViewModel>().ToConstant(new AdministratorViewModel());
         }
 
         #endregion

@@ -125,10 +125,15 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <!-- The settings control menu -->
         <local:SettingsControl Grid.ColumnSpan="2" local:AnimateSlideInFromBottomMarginProperty.Value="{Binding ApplicationViewModel.SettingsMenuVisible
             , Source={x:Static local:ViewModelLocator.Instance}}" Panel.ZIndex="10"/>
+        <!-- The manager control menu -->
         <local:ManagerControl Grid.ColumnSpan="2" local:AnimateSlideInFromBottomMarginProperty.Value="{Binding ApplicationViewModel.ManagerAddVisible
             , Source={x:Static local:ViewModelLocator.Instance}}" Panel.ZIndex="11"/>
+        <!-- The admin control menu -->
+        <local:AdministratorControl Grid.ColumnSpan="2" local:AnimateSlideInFromBottomMarginProperty.Value="{Binding ApplicationViewModel.AdministratorControlVisible
+            , Source={x:Static local:ViewModelLocator.Instance}}" Panel.ZIndex="12"/>
         <!-- Main frame -->
         <local:PageHost x:Name="MainFrame" Grid.Column="1" d:DataContext=""
                DataContext="{Binding ApplicationViewModel.CurrentPage, Source={x:Static local:ViewModelLocator.Instance}, 

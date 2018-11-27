@@ -35,7 +35,8 @@
                         Command="{Binding ExitAccountCommand}"/>
                 <Button Content="Менеджер" VerticalAlignment="Center" HorizontalAlignment="Center"
                         Command="{Binding GoToManagerCommand}"/>
-                <Button Content="Администратор" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Button Content="Администратор" VerticalAlignment="Center" HorizontalAlignment="Center"
+                        Command="{Binding GoToAdminCommand}"/>
             </StackPanel>
         </Grid>
     </Border>

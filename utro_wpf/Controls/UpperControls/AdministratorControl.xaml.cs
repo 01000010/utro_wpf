@@ -25,7 +25,7 @@ namespace utro_wpf
         {
             InitializeComponent();
 
-            DataContext = IoC.AppSettings;
+            DataContext = IoC.AppAdmin;
         }
     }
 }

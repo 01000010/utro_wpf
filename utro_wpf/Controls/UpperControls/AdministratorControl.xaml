@@ -6,13 +6,16 @@
              xmlns:local="clr-namespace:utro_wpf"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Border Padding="10"  Background="{StaticResource Main1Brush}">
+    
+    <Border Background="{StaticResource Main1Brush}" 
+            Padding="15">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <Grid Height="100">
+            <!-- Settings Title -->
+            <Grid Height="100" Margin="0 0 0 20">
                 <Button Style="{StaticResource IconButtonAlt}"
                     Content="{StaticResource BackArrow}"
                     FontFamily="{StaticResource FontAwesome}"
@@ -20,22 +23,25 @@
                     FontSize="{StaticResource FontSizeRegular}"
                     Grid.Column="0"
                     HorizontalAlignment="Left" VerticalAlignment="Center"
-                    Command="{Binding CloseSettingsCommand}"/>
+                    Command="{Binding CloseAdministratorCommand}"/>
                 <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"
                      FontSize="{StaticResource FontSizeExtraLarge}"
                      Foreground="{StaticResource Text1Brush}">
                 <Run FontFamily="{StaticResource FontAwesome}"
-                     Text="{StaticResource Cog}"
+                     Text="{StaticResource Sales}"
                      Foreground="{StaticResource Extra2Brush}"/>
-                <Run Text="Настройки"/>
+                <Run Text="Контрол заказы"/>
                 </TextBlock>
             </Grid>
-            <StackPanel Grid.Row="1" Margin="0 20 0 0">
-                <Button Content="Выход" Style="{StaticResource ExitButton}" VerticalAlignment="Center" HorizontalAlignment="Center"
-                        Command="{Binding ExitAccountCommand}"/>
-                <Button Content="Менеджер" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                <Button Content="Администратор" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-            </StackPanel>
+            <!-- Main Content -->
+            <Grid Grid.Row="1"
+                  Width="600"
+                  VerticalAlignment="Top">
+                <!-- Profile details -->
+                <StackPanel Grid.Column="1">
+                    
+                </StackPanel>
+            </Grid>
         </Grid>
     </Border>
 </UserControl>
